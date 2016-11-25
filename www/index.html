@@ -47,16 +47,19 @@
 
 
     <script>
-        /*MAP ANDROID*/
-        var map;
-
-        var div = document.getElementById("map2");
-        map = plugin.google.maps.Map.getMap(div);
-        map.addEventListener(plugin.google.maps.event.MAP_READY, iniMap);
-
         function iniMap(){
+
+            }
+        document.addEventListener("deviceready", function() {
+            /*MAP ANDROID*/
+            var map2;
+
+            var div_map2 = document.getElementById("map2");
+            map2 = plugin.google.maps.Map.getMap(div_map2);
+            map2.addEventListener(plugin.google.maps.event.MAP_READY, iniMap);
+
             
-        }
+        },false);
     </script>
 
 	<script>
