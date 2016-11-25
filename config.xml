@@ -7,7 +7,6 @@
   <!--<icon src="icon3.png"/>-->
   
   <icon src="icon.jpg" />
-  <splash src="splash.png" />
 
   <plugin spec="https://github.com/victor167/cordova-plugin-googlemaps-master.git" source="git" />
   
@@ -19,7 +18,7 @@
   <platform name="android">
     <allow-intent href="market:*"/>
   </platform>
-  
+
   <platform name="ios">
     <allow-intent href="itms:*"/>
     <allow-intent href="itms-apps:*"/>
