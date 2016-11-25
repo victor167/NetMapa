@@ -16,8 +16,6 @@
   <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0"/>
   <plugin name="cordova-plugin-network-information" source="npm" spec="~1.2.0"/>
   <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
-
-  <plugin name="tabris-plugin-maps" spec="2.0.1" />
   
   <plugin name="tabris-plugin-maps" spec="2.0.1">
     <variable name="ANDROID_API_KEY" value="AIzaSyDqqseQsCvkJfCpy6gswmpUY4IBhCCrtZU" />
