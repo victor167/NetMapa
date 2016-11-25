@@ -10,7 +10,7 @@
   <js-module name="cordova-plugin-googlemaps" src="www/googlemaps-cdv-plugin.js">
         <clobbers target="cordova-plugin-googlemaps" />
     </js-module>
-    
+
   <plugin name="cordova-plugin-file" source="npm" spec="4.3.0"/>
   <plugin name="cordova-plugin-file-transfer" source="npm" spec="1.6.0"/>
   <plugin name="cordova-plugin-console" source="npm" spec="~1.0.2"/>
@@ -80,7 +80,7 @@
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <meta-data
               android:name="com.google.android.geo.API_KEY"
-              android:value="AIzaSyC_Qt90zF0YeJGtNmsoCHZbhIuw2HO_9Xk" />
+              android:value="AIzaSyDqqseQsCvkJfCpy6gswmpUY4IBhCCrtZU" />
             <!-- Google Play Services SDK -->
             <meta-data android:name="com.google.android.gms.version"
                        android:value="@integer/google_play_services_version" />
