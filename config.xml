@@ -6,10 +6,16 @@
   <content src="index.html"/>
   
   <icon src="icon.jpg" />
+
   <plugin name="cordova-plugin-file" source="npm" spec="4.3.0"/>
   <plugin name="cordova-plugin-file-transfer" source="npm" spec="1.6.0"/>
+  <plugin name="cordova-plugin-console" source="npm" spec="~1.0.2"/>
   <plugin name="cordova-plugin-device" source="npm" spec="~1.1.1"/>
+  <plugin name="cordova-plugin-device-motion" source="npm" spec="~1.2.0"/>
+  <plugin name="cordova-plugin-device-orientation" source="npm" spec="~1.0.2"/>
+  <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0"/>
   <plugin name="cordova-plugin-network-information" source="npm" spec="~1.2.0"/>
+  <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
   <!--<plugin spec="https://github.com/victor167/cordova-plugin-googlemaps-master.git" source="git" />-->
   
   <preference name="loadUrlTimeoutValue" value="700000" />
@@ -18,7 +24,7 @@
   <preference name="phonegap-version" value="cli-6.3.0" />
   <preference name="android-minSdkVersion" value="14"/>
   <preference name="android-build-tool" value="gradle" />
-  
+
   <access origin="*"/>
 
   <allow-intent href="http://*/*"/>
