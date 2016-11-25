@@ -7,7 +7,7 @@
   
   <icon src="icon.jpg" />
 
-  <plugin spec="https://github.com/victor167/cordova-plugin-googlemaps-master.git" source="git" />
+  <!--<plugin spec="https://github.com/victor167/cordova-plugin-googlemaps-master.git" source="git" />-->
   
   <preference name="loadUrlTimeoutValue" value="700000" />
   <access origin="*"/>
