@@ -51,15 +51,15 @@
                 alert("INIMAP INITIALIZE");
         }
 
-        document.addEventListener("deviceready", function(){
+        window.setTimeout(function() {
                 alert("LOADING MAP ANDROID");
-            /*MAP ANDROID
+            /*MAP ANDROID*/
             var map2;
 
             var div_map2 = document.getElementById("map2");
             map2 = plugin.google.maps.Map.getMap(div_map2);
-            map2.addEventListener(plugin.google.maps.event.MAP_READY, iniMap);*/
-        }, false);
+            map2.addEventListener(plugin.google.maps.event.MAP_READY, iniMap);
+        }, 700);
     </script>
 
 	<script>
