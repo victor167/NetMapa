@@ -9,19 +9,58 @@
             alert(error);
         };
     </script>
-    
+    <style type="text/css">
+        .selected{
+            background: #45ff6d!important;
+            display: block!important;
+        }
+        #map,#map2{
+            display: none;
+        }
+    </style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).on("click","#cambio_map",function(){
+            $("#cambio_map").addClass("selected");
+            $("#cambio_map2").removeClass("selected");
+            $("#map").show().addClass("selected");
+            $("#map2").hide().removeClass("selected");
+        });
+        $(document).on("click","#cambio_map2",function(){
+            $("#cambio_map2").addClass("selected");
+            $("#cambio_map").removeClass("selected");
+            $("#map2").show().addClass("selected");
+            $("#map").hide().removeClass("selected");
+        });
+    </script>
 </head>
 <body style="background: blue;">
 
-	<div style="display: none;" id="floating-panel">      
+	<div style="display: none;" id="floating-panel"></div>
+    <div id="location-panel"></div>
+    <div id="cambio">
+        <div id="cambio_map" class="selected" style="width: 50%;float: left;text-align: center;line-height: 35px;background: white;">Mapa Web</div>
+        <div id="cambio_map2" style=" width: 50%; float: right; text-align: center; line-height: 35px; background: white; ">Mapa Android</div>
     </div>
-    <div id="location-panel">   
-    </div>
-	<div id="map" style="background: red;position: absolute;top: 0;right: 0;left: 0;bottom: 0;height: 100%;width: 100%;"></div>
+	<div id="map" class="selected" style="background: red;position: absolute;top: 50px;right: 0;left: 0;bottom: 0;"></div>
+    <div id="map2" style="background: red;position: absolute;top: 50px;right: 0;left: 0;bottom: 0;"></div>
+
+
+    <script>
+        /*MAP ANDROID*/
+        var map;
+
+        var div = document.getElementById("map2");
+        map = plugin.google.maps.Map.getMap(div);
+        map.addEventListener(plugin.google.maps.event.MAP_READY, iniMap);
+
+        function iniMap(){
+            
+        }
+    </script>
 
 	<script>
-
+        /*MAP WEB*/
         var point1, point2;
         var poly;
 
@@ -256,8 +295,9 @@
             myInfoWindow = new google.maps.InfoWindow({
                 content: ''
             });
+
             directionsDisplay = new google.maps.DirectionsRenderer();
-            //var mainCenter = new google.maps.LatLng(-12.155341, -76.979340);
+            
             var mainCenter = new google.maps.LatLng(-12.079976389372302, -77.21021929484084);
             
             var mapOptions = {
