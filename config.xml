@@ -1,0 +1,28 @@
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id= "com.aistraking.mapa" version="1.0.0">
+
+  <name>NetMapa</name>
+  <description>NetMapa</description>
+  <author email="vrecinesm@gmail.com">Victor Recines</author>
+  <content src="index.html"/>
+  <!--<icon src="icon3.png"/>-->
+  
+  <icon src="icon.jpg" />
+  <splash src="splash.png" />
+
+  <plugin spec="https://github.com/victor167/cordova-plugin-googlemaps-master.git" source="git" />
+  
+  <preference name="loadUrlTimeoutValue" value="700000" />
+  <access origin="*"/>
+  <allow-intent href="http://*/*"/>
+  <allow-intent href="https://*/*"/>
+
+  <platform name="android">
+    <allow-intent href="market:*"/>
+  </platform>
+  
+  <platform name="ios">
+    <allow-intent href="itms:*"/>
+    <allow-intent href="itms-apps:*"/>
+  </platform>
+
+</widget>
