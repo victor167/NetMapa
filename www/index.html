@@ -39,16 +39,16 @@
 	<div style="display: none;" id="floating-panel"></div>
     <div id="location-panel"></div>
     <div id="cambio">
-        <div id="cambio_map" class="selected" style="width: 50%;float: left;text-align: center;line-height: 35px;background: white;">Mapa Web</div>
-        <div id="cambio_map2" style=" width: 50%; float: right; text-align: center; line-height: 35px; background: white; ">Mapa Android</div>
+        <div id="cambio_map" style="width: 50%;float: left;text-align: center;line-height: 35px;background: white;">Mapa Web</div>
+        <div id="cambio_map2" class="selected" style=" width: 50%; float: right; text-align: center; line-height: 35px; background: white; ">Mapa Android</div>
     </div>
-	<div id="map" class="selected" style="background: red;position: absolute;top: 50px;right: 0;left: 0;bottom: 0;"></div>
-    <div id="map2" style="background: red;position: absolute;top: 50px;right: 0;left: 0;bottom: 0;"></div>
+	<div id="map"  style="background: red;position: absolute;top: 50px;right: 0;left: 0;bottom: 0;"></div>
+    <div id="map2" class="selected" style="background: red;position: absolute;top: 50px;right: 0;left: 0;bottom: 0;"></div>
 
 
     <script>
         function iniMap(){
-
+                alert("INIMAP INITIALIZE");
             }
         document.addEventListener("deviceready", function() {
             /*MAP ANDROID*/
