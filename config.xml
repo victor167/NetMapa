@@ -18,7 +18,7 @@
   <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
 
   <plugin spec="https://github.com/victor167/cordova-plugin-googlemaps-master.git" source="git" />
-  <preference name="API_KEY_FOR_ANDROID" value="AIzaSyDqqseQsCvkJfCpy6gswmpUY4IBhCCrtZU"/>
+  <preference name="API_KEY_FOR_ANDROID" value="AIzaSyC_Qt90zF0YeJGtNmsoCHZbhIuw2HO_9Xk"/>
   <preference name="API_KEY_FOR_IOS" value=""/>
 
   <preference name="loadUrlTimeoutValue" value="700000" />
