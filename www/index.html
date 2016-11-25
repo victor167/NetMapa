@@ -264,11 +264,10 @@
             };           
 
             directionsDisplay.setMap(map);
-            //MainRefresh();
+            
             RefreshBoat();
-            setTimeout('GetVal()', 20000);
-            //setInterval('RefreshBoat()',parseInt(str_mapRefresh) * 1000);
-            //setInterval('RefreshBoat()', 20000);
+            /*setTimeout('GetVal()', 20000);
+
 
             $('#btn_wide').click(function () {
                 $('#panel-input').hide('fast');
@@ -288,6 +287,7 @@
             google.maps.event.addListener(map, "mousemove", function(event) {
                 document.getElementById('location-panel').innerHTML = fixedLlString(event.latLng.lat(),event.latLng.lng());
             });
+            */
         }
 
         function fixedLlString(la,lo)
