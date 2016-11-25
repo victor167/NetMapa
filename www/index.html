@@ -3,6 +3,14 @@
 <head>
 	<title>Mapa</title>
 	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    
+    <script>
+        window.onerror = function(error) {
+            // do something clever here
+            alert(error); // do NOT do this for real!
+        };
+    </script>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 <body style="background: blue;">
@@ -14,6 +22,7 @@
 	<div id="map" style="background: red;position: absolute;top: 0;right: 0;left: 0;bottom: 0;height: 100%;width: 100%;"></div>
 
 	<script>
+
         var point1, point2;
         var poly;
 
