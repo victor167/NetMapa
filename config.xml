@@ -2,8 +2,8 @@
   <!-- NetInspeccion (RJ999353BH.com.aistraking.inspection) -->
 <!--<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.aistraking.res" version="1.0.0">-->
 
-  <name>NetInspection</name>
-  <description>NetInspeccion</description>
+  <name>AIS Tracking</name>
+  <description>AIS Tracking</description>
   <author email="vrecinesm@gmail.com">Victor Recines</author>
   <content src="index.html"/>
 <platform name="android">
