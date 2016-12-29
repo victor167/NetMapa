@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS session;
+CREATE TABLE session (name TEXT, value TEXT);
+INSERT INTO session (name,value) VALUES ("updateDatabaseMobil","@UPDATE_DATABASE_MOBIL");
+INSERT INTO session (name,value) VALUES ("connect","0");
+INSERT INTO session (name,value) VALUES ("token","");
+INSERT INTO session (name,value) VALUES ("idUser","");
+INSERT INTO session (name,value) VALUES ("idCompany","");
+INSERT INTO session (name,value) VALUES ("user","");
+INSERT INTO session (name,value) VALUES ("namePerson","");
+INSERT INTO session (name,value) VALUES ("profile","");
