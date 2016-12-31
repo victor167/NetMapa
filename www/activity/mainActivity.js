@@ -220,7 +220,8 @@ var app = {
     },
     activities:[
         'loginActivity',
-        'indexActivity'
+        'indexActivity',
+        'detalleNaveEmpresaActivity'
     ],
     saveCountQuest:[],
     saveCountCat:[],

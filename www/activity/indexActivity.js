@@ -14,6 +14,9 @@ var myInfoWindow;
 var str_mapRefresh = '';
 var result;
 
+var getInfoMyShips=false;
+var select_id_ship=0;
+var select_marker;
 var indexActivity = 
 {
 	ini: function() {
@@ -120,64 +123,24 @@ var indexActivity =
     	console.log(s);
     },
     fnDialog: function(id_ship, marker) {
-        //if (id_ship === null) return;            
-        var source = marker.source;
+        select_id_ship  = id_ship;
+        select_marker   = marker;
+        getInfoMyShips=true;
 
-        var id_company = source.id_company;
-        var shipname = source.shipname;
-        var id_lenguage = source.id_lenguage;
-
-        $$('#lblNomBarco').html(source.shipname);            
-
-        $$('#my-tab-content .tab-pane').removeClass('active');
-        if($$('#barco')!=null)
-            $$('#barco').addClass('active');
-        else
-            $$('#ais').addClass('active');
-
-
-        $$('#tabs li').removeClass('active');
-        if($$('#liBarco')!=null)
-            $$('#liBarco').addClass('active');
-        else
-            $$('#liAIS').addClass('active');
-
-        if ($$('#ais') != null)
-            //$('#ais').load('../UC/ucInfoShipAIS.ascx?idship=' + id_ship + "&id_lenguage=" + id_lenguage);
-            loadUcInfoShipAIS(id_ship, id_lenguage);
-
-        if ($$('#barco') != null)
-            //$('#barco').load('../UC/ucInfoShipCompany.ascx?idship=' + id_ship + "&id_lenguage=" + id_lenguage);
-            GetUcInfoShipCompany(id_ship, id_lenguage);
-
-        if ($$('#tripulacion') != null)
-            //$('#tripulacion').load('../UC/ucCrewList.ascx?idcompany=' + id_company + '&idship=' + id_ship + '&shipname=' + shipname);
-            GetUcCrewList(id_company, id_ship, shipname);
-
-        $$('#mdlInfoBarco').modal('show');
+        mainView.router.load({
+            'url':'layout/detalleNaveEmpresa.html',
+            'animatePages':false
+        });
     },
     fnDialogPublic: function(id_ship, marker) {
-        //if (id_ship === null) return;            
-        var source = marker.source;
-
-        var shipname = source.shipname;
-        var id_lenguage = source.id_lenguage;
-
-        $$('#lblNomBarcoP').html(source.shipname);
-
-        $$('#my-tab-content-public .tab-pane').removeClass('active');
-        if ($$('#aisP') != null)
-            $$('#aisP').addClass('active');
-
-        $$('#tabs-public li').removeClass('active');
-        if ($$('#liAISP') != null)
-            $$('#liAISP').addClass('active');
-
-        if ($$('#aisP') != null)
-            //$('#aisP').load('../UC/ucInfoShipAIS.ascx?idship=' + id_ship + "&id_lenguage=" + id_lenguage);
-            loadUcInfoShipAISP(id_ship, id_lenguage);
-
-        $$('#mdInfoPublic').modal('show');
+        select_id_ship  = id_ship;
+        select_marker   = marker;
+        getInfoMyShips=false;
+        
+        mainView.router.load({
+            'url':'layout/detalleNaveEmpresa.html',
+            'animatePages':false
+        });
     },
     clearOverlays: function() {
         for (var i = 0; i < markersArray.length; i++) {
@@ -197,10 +160,14 @@ var indexActivity =
             var id_company = source.id_company;
             if (id_company == null)
                 id_company = 0;
-            if(id_company!=0)
+            if(id_company!=0){
+                //alert("fnDialog");
                 indexActivity.fnDialog(id_ship, marker);
-            else
+            }
+            else{
+                //alert("fnDialogPublic");
                 indexActivity.fnDialogPublic(id_ship, marker);
+            }
             //$(document).ready(function(){
 
                    //$('#myModal').modal('show');
@@ -582,70 +549,6 @@ var indexActivity =
             alert(err.message + ' Start:' + response.d);
             console.log("error", response.d);
         }
-    },
-    loadUcInfoShipAISP:function(id_ship, id_lenguage) {
-        $$('#aisP').empty();
-        $$.ajax({
-            type: "POST",
-            url: "MyTracking.aspx/GetucInfoShipAIS",
-            data: '{id_ship: ' + id_ship + ', _id_lenguage: "' + id_lenguage + '" }',
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (r) {
-                $$("#aisP").append(r.d);
-            },
-            failure: function (response) {
-                alert(response);
-            }
-        });
-    },
-    loadUcInfoShipAIS:function(id_ship, id_lenguage) {
-        $$('#ais').empty();
-        $$.ajax({
-            type: "POST",
-            url: "MyTracking.aspx/GetucInfoShipAIS",
-            data: '{id_ship: ' + id_ship + ', _id_lenguage: "' + id_lenguage + '" }',
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (r) {
-                $$("#ais").append(r.d);
-            },
-            failure: function (response) {
-                alert(response);
-            }
-        });
-    },
-    GetUcInfoShipCompany: function(id_ship, id_lenguage) {
-        $$('#barco').empty();
-        $$.ajax({
-            type: "POST",
-            url: "MyTracking.aspx/GetUcInfoShipCompany",
-            data: '{id_ship: ' + id_ship + ', _id_lenguage: "' + id_lenguage + '" }',
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (r) {
-                $$("#barco").append(r.d);
-            },
-            failure: function (response) {
-                alert(response);
-            }
-        });
-    },
-    GetUcCrewList: function(id_company,id_ship,shipname) {
-        $$('#tripulacion').empty();
-        $$.ajax({
-            type: "POST",
-            url: "MyTracking.aspx/GetUcCrewList",
-            data: '{id_company: ' + id_company + ', id_ship: ' + id_ship + ', nom_barco:"' + shipname + '"}',
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (r) {
-                $$("#tripulacion").append(r.d);
-            },
-            failure: function (response) {
-                alert(response);
-            }
-        });
     },
     load: function(){
 

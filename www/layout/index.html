@@ -13,6 +13,68 @@
 
     <div class="page-content">
         <div id="map"  style="background: #2196f3;position: absolute;top: 50px;right: 0;left: 0;bottom: 0;"></div>
+
+        <!-- Modal nivel sumario (barco) !-->
+        <div class="modal fade" id="mdlInfoBarco" tabindex="-1" role="dialog" aria-labelledby="mdlInfoBarco">
+          <div class="modal-dialog dialog-overwrite" role="document">
+            <div class="modal-content content-overwrite">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="lblNomBarco"></h4>
+              </div>
+              <div class="modal-body" style="height: 85%">
+                <div id="content">
+                    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                        
+                        <li class="active" id="liBarco"><a href="#barco" data-toggle="tab">Información del Barco</a></li>
+                        
+                        <li id="liAIS"><a href="#ais" data-toggle="tab">Detalle AIS</a></li>
+                        
+                        <li><a href="#tripulacion" data-toggle="tab">Tripulación</a></li>
+                        
+                    </ul>
+                </div>
+                <div id="my-tab-content" class="tab-content">
+                     
+                    <div class="tab-pane active" id="barco">
+                    </div>
+                    
+                    <div class="tab-pane" id="ais">
+                    </div>
+                     
+                    <div class="tab-pane" id="tripulacion">
+                    </div>
+                </div>
+                    <!--a class="btn btn-default" href="frmMarcahuasi.aspx" role="button">Ver Detalle</a!-->
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="mdInfoPublic" tabindex="-1" role="dialog" aria-labelledby="mdInfoPublic">
+          <div class="modal-dialog dialog-overwrite" role="document">
+            <div class="modal-content content-overwrite">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="lblNomBarcoP"></h4>
+              </div>
+              <div class="modal-body">
+                <div id="contentP">
+                    <ul id="tabs-public" class="nav nav-tabs" data-tabs="tabs">
+                        <li id="liAISP"><a href="#aisP" data-toggle="tab">Detalle AIS</a></li>
+                    </ul>
+                </div>
+                <div id="my-tab-content-public" class="tab-content">
+                    <div class="tab-pane" id="aisP">
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
     </div>
 
     <script>Main.loadActivity('indexActivity');Main.backgroundTopHide();</script>
