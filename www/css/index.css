@@ -1,0 +1,18 @@
+.pnl-item
+{
+    border-bottom: 1px solid #DDD;
+    padding: 4px !important;
+}
+#divAIS .txt_title
+{
+	font-weight: bold;
+}
+#divAIS .txt_info
+{
+	display: block;
+    min-height: 20px;
+}
+#naveEmpresaTripulacion li
+{
+	border-bottom: 6px solid #e1e1e1;
+}

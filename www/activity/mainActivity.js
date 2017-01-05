@@ -36,9 +36,9 @@ var app_error = false;
  */
 
 var version                 = '0.1.0';
-var API                     = 'http://app.aistracking.net/';
-
-//var API                     = 'http://localhost:11313/';
+//var API                     = 'http://app.aistracking.net/';
+var API                     = 'http://localhost:43966/api/';
+var WEB                     = 'http://aistracking.com/';
 var UPDATE_DATABASE_MOBIL   =   '12/12/2016 12:52';
 var SESSION                 =   new Object();
 var DB;
@@ -121,7 +121,7 @@ var app = {
             //Main.loadActivity('panelMapActivity');
         
     },
-    loadTypeInspection: function(callbackTypeInspectionOK){
+    /*loadTypeInspection: function(callbackTypeInspectionOK){
         ////console.log("loadTypeInspection");
         Main.restFul(
             API + 'api/typeInspection',
@@ -143,14 +143,6 @@ var app = {
                         alert('Lo sentimos ocurrio un error al cargar la inspeccion');
                     }
                 }
-                /*else
-                {
-                    Main.backgroundTopShow(
-                        '<div class="imargin-top-60"><div class="icon_global">:(</div>'+
-                        '<div>Lo sentimos el servidor no se encuentra disponible.</div>'+
-                        '<div>Por favor, inténtelo más tarde</div></div>'
-                    );
-                }*/
             }
         );
     },
@@ -175,17 +167,9 @@ var app = {
                         alert('Lo sentimos ocurrio un error al cargar la sede');
                     }
                 }
-                /*else
-                {
-                    Main.backgroundTopShow(
-                        '<div class="imargin-top-60"><div class="icon_global">:(</div>'+
-                        '<div>Lo sentimos el servidor no se encuentra disponible.</div>'+
-                        '<div>Por favor, inténtelo más tarde</div></div>'
-                    );
-                }*/
             }
         );
-    },
+    },*/
     loadInitLayout: function(callbackLayoutOK){
         ////console.log("LOAD_INIT_LAYOUT");
         //mainView.router.loadPage('layout/login.html');
@@ -197,9 +181,9 @@ var app = {
                 {
                     callbackLayoutOK();
                 }
-                app.loadTypeInspection(function(){
+                /*app.loadTypeInspection(function(){
                     loadTypeInspectionAndSedes=true;
-                });
+                });*/
 
                 /*
                 if(typeof callbackLayoutOK !=="undefined")
@@ -871,7 +855,7 @@ var Main                    =   {
         }
     },
     logout: function(){
-
+        load_map = false;
         Main.backgroundTopShow("Cerrando sesión...");
         myApp.closePanel("left");
          DB.process(
@@ -1061,18 +1045,25 @@ var Main                    =   {
             processData: false,
             contentType: 'application/json',
             success: function(data,textStatus,respondHeader)
-            {
-                var request   = {data:_data,headers:_headers};
-                var returning = {id:id,url:_url,type:_type,request:request,success:true,data:data};
-                if(isMobile())
-                {
-                    console.re.info(returning);
+            {   
+                try{
+                    var request   = {data:_data,headers:_headers};
+                    var returning = {id:id,url:_url,type:_type,request:request,success:true,data:data};
+                    if(isMobile())
+                    {
+                        console.re.info(returning);
+                    }
+                    else
+                    {
+                        console.info(returning);
+                    }
+                    _callback(returning,respondHeader);
                 }
-                else
+                catch(err)
                 {
-                    console.info(returning);
+                    console.error(err,"ERROR IN SUCESS RESTFUL, ID_RESTFUL:" + id);
                 }
-                _callback(returning,respondHeader);
+
             },
             error: function(respondHeader, textStatus, errorThrown)
             {
@@ -1124,7 +1115,7 @@ var Main                    =   {
                 {
                     var request   = {data:_data,headers:_headers};
                     var returning = {id:id,url:_url,type:_type,request:request,success:false,data:null,respondHeader:respondHeader,textStatus:textStatus,errorThrown:errorThrown};
-                    console.re.info(returning);
+                    console.info(returning);
                     Main.restFulError(returning,respondHeader);
                     _callback(returning,respondHeader);
                 }

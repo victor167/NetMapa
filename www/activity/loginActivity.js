@@ -75,7 +75,7 @@ var loginActivity =
 
 				Main.backgroundTopShow("Iniciando sesión...");
 	        	Main.restFul(
-	        		API + 'api/user',
+	        		API + 'user',
 	        		'POST',
 	        	{"txtAuthName": user,"txtAuthPass": password},
 	        	function(respondBody,respondHeader)
