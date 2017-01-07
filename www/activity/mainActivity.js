@@ -36,8 +36,7 @@ var app_error = false;
  */
 
 var version                 = '0.1.0';
-//var API                     = 'http://app.aistracking.net/';
-var API                     = 'http://localhost:43966/api/';
+var API                     = 'http://app.aistracking.net/api/';
 var WEB                     = 'http://aistracking.com/';
 var UPDATE_DATABASE_MOBIL   =   '12/12/2016 12:52';
 var SESSION                 =   new Object();
