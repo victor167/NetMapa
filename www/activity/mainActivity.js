@@ -1133,6 +1133,7 @@ var Main                    =   {
     },
     loadActivity: function (activity)
     {
+        alert("loadActivity: " + activity);
         console.log("LOAD ACTIVITY");
         console.log(activity);
         if(!this.inArray(activities,activity))
