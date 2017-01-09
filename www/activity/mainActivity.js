@@ -1139,7 +1139,7 @@ var Main                    =   {
         {
             activities[activities.length]   =   activity;
             console.re.log("INARRAY:" + activity);
-            console.re.log(window);
+            console.re.log(window[activity]);
             window[activity].ini();
         }
         window[activity].load();

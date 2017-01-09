@@ -5,7 +5,7 @@ var detalleNaveEmpresaActivity =
 	},
 	fnDialog : function(){
         alert("fnDialog");
-		                //if (id_ship === null) return; 
+		/*
 		var id_ship = select_id_ship;
 		var marker = select_marker;
 
@@ -30,17 +30,17 @@ var detalleNaveEmpresaActivity =
         else
             $$('#liAIS').addClass('active');
 
-        /*if ($$('#ais') != null)
+        if ($$('#ais') != null)
             detalleNaveEmpresaActivity.loadUcInfoShipAIS(id_ship, id_lenguage);
-        */
+        
         if ($$('#barco') != null)
             detalleNaveEmpresaActivity.GetUcInfoShipCompany(id_ship, id_lenguage);
-        /*
+        
         if ($$('#tripulacion') != null)
-            detalleNaveEmpresaActivity.GetUcCrewList(id_company, id_ship, shipname);*/
-        /////////////////////////////////////////////////////////////////////MOSTRAR MODAL
+            detalleNaveEmpresaActivity.GetUcCrewList(id_company, id_ship, shipname);
+        /////////////////////////////////////////////////////////////////////MOSTRAR MODAL*/
 	},
-	fnDialogPublic : function(){
+	/*fnDialogPublic : function(){
         alert("fnDialogPublic");
 		//if (id_ship === null) return;
 				var id_ship = select_id_ship;
@@ -273,12 +273,12 @@ var detalleNaveEmpresaActivity =
             }
         );
 
-    },
+    },*/
 	load: function(){
         alert("POR EL LOAD detalleNaveEmpresaActivity");
         alert(getInfoMyShips);
 
-		if(getInfoMyShips)
+		/*if(getInfoMyShips)
         {
 			detalleNaveEmpresaActivity.fnDialog();
 		}
@@ -289,7 +289,7 @@ var detalleNaveEmpresaActivity =
 			$$("#tabnavetripulation.tab").remove();
 			detalleNaveEmpresaActivity.fnDialogPublic();
 		}
-
+*/
 
 	}
 }
