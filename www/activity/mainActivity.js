@@ -1139,8 +1139,9 @@ var Main                    =   {
         {
             alert("IN ARRAY ACTIVITY1: " + activity);
             activities[activities.length]   =   activity;
-            window[activity].ini();
             alert("IN ARRAY ACTIVITY2: " + activity);
+            window[activity].ini();
+            alert("IN ARRAY ACTIVITY3: " + activity);
         }
         window[activity].load();
     },
