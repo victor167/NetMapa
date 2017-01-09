@@ -277,12 +277,12 @@ var detalleNaveEmpresaActivity =
 	load: function(){
         alert("load detalleNaveEmpresaActivity");
 		if(getInfoMyShips){
-			this.fnDialog();
+			detalleNaveEmpresaActivity.fnDialog();
 		}else{
 			$$('div[data-page="detalleNaveEmpresa"] .toolbar').remove();
 			$$("#tabnaveinformation.tab").remove();
 			$$("#tabnavetripulation.tab").remove();
-			this.fnDialogPublic();
+			detalleNaveEmpresaActivity.fnDialogPublic();
 		}
 
 
