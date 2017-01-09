@@ -1,11 +1,10 @@
 var detalleNaveEmpresaActivity =
 {
 	ini: function(){
-        alert("POR EL INI detalleNaveEmpresaActivity");
+        
 	},
 	fnDialog : function(){
-        alert("fnDialog");
-		/*
+
 		var id_ship = select_id_ship;
 		var marker = select_marker;
 
@@ -38,12 +37,11 @@ var detalleNaveEmpresaActivity =
         
         if ($$('#tripulacion') != null)
             detalleNaveEmpresaActivity.GetUcCrewList(id_company, id_ship, shipname);
-        /////////////////////////////////////////////////////////////////////MOSTRAR MODAL*/
+        /////////////////////////////////////////////////////////////////////MOSTRAR MODAL
 	},
-	/*fnDialogPublic : function(){
-        alert("fnDialogPublic");
-		//if (id_ship === null) return;
-				var id_ship = select_id_ship;
+	fnDialogPublic : function(){
+
+		var id_ship = select_id_ship;
 		var marker = select_marker;
 
 
@@ -65,10 +63,8 @@ var detalleNaveEmpresaActivity =
         if ($$('#aisP') != null)
             detalleNaveEmpresaActivity.loadUcInfoShipAISP(id_ship, id_lenguage);
         /////////////////////////////////////////////////////////////////////MOSTRAR MODAL
-
-        //$$('#mdInfoPublic').modal('show');
 	},
-    indexTabletoTitle(index){
+    indexTabletoTitle:function(index){
         switch(index){
             case "mmsi": return "MMSI";break;
             case "ais_imo": return "Numero IMO";break;
@@ -136,7 +132,7 @@ var detalleNaveEmpresaActivity =
         );
     },
     loadUcInfoShipAIS:function(id_ship, id_lenguage) {
-        alert("loadUcInfoShipAIS");
+        //alert("loadUcInfoShipAIS");
         $$('#tabnaveais').html("");
 
         Main.restFul(
@@ -275,10 +271,8 @@ var detalleNaveEmpresaActivity =
 
     },*/
 	load: function(){
-        alert("POR EL LOAD detalleNaveEmpresaActivity");
-        alert(getInfoMyShips);
 
-		/*if(getInfoMyShips)
+		if(getInfoMyShips)
         {
 			detalleNaveEmpresaActivity.fnDialog();
 		}
@@ -289,7 +283,5 @@ var detalleNaveEmpresaActivity =
 			$$("#tabnavetripulation.tab").remove();
 			detalleNaveEmpresaActivity.fnDialogPublic();
 		}
-*/
-
 	}
 }
