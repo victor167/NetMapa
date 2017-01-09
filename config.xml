@@ -6,6 +6,7 @@
   <description>AIS Tracking</description>
   <author email="vrecinesm@gmail.com">Victor Recines</author>
   <content src="index.html"/>
+  <icon src="icon.png"/>
 	<!--
 <platform name="android">
     <allow-intent href="market:*"/>
