@@ -1135,7 +1135,7 @@ var Main                    =   {
     {
         alert("loadActivity: " + activity);
         console.log("LOAD ACTIVITY");
-        console.log(activity);
+        console.log(activities);
         if(!this.inArray(activities,activity))
         {
             activities[activities.length]   =   activity;
