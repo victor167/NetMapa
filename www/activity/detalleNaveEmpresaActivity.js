@@ -275,6 +275,7 @@ var detalleNaveEmpresaActivity =
 
     },
 	load: function(){
+        alert("load detalleNaveEmpresaActivity");
 		if(getInfoMyShips){
 			this.fnDialog();
 		}else{
