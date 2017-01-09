@@ -276,9 +276,14 @@ var detalleNaveEmpresaActivity =
     },
 	load: function(){
         alert("load detalleNaveEmpresaActivity");
-		if(getInfoMyShips){
+        alert(getInfoMyShips);
+        
+		if(getInfoMyShips)
+        {
 			detalleNaveEmpresaActivity.fnDialog();
-		}else{
+		}
+        else
+        {
 			$$('div[data-page="detalleNaveEmpresa"] .toolbar').remove();
 			$$("#tabnaveinformation.tab").remove();
 			$$("#tabnavetripulation.tab").remove();
