@@ -1,7 +1,7 @@
 var detalleNaveEmpresaActivity =
 {
 	ini: function(){
-
+        alert("POR EL INI detalleNaveEmpresaActivity");
 	},
 	fnDialog : function(){
         alert("fnDialog");
@@ -275,9 +275,9 @@ var detalleNaveEmpresaActivity =
 
     },
 	load: function(){
-        alert("load detalleNaveEmpresaActivity");
+        alert("POR EL LOAD detalleNaveEmpresaActivity");
         alert(getInfoMyShips);
-        
+
 		if(getInfoMyShips)
         {
 			detalleNaveEmpresaActivity.fnDialog();

@@ -1134,12 +1134,13 @@ var Main                    =   {
     loadActivity: function (activity)
     {
         alert("loadActivity: " + activity);
-        console.log("LOAD ACTIVITY");
-        console.log(activities);
+        console.log("LOAD ACTIVITY: " + activity);
         if(!this.inArray(activities,activity))
         {
+            alert("IN ARRAY ACTIVITY1: " + activity);
             activities[activities.length]   =   activity;
             window[activity].ini();
+            alert("IN ARRAY ACTIVITY2: " + activity);
         }
         window[activity].load();
     },
