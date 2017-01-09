@@ -269,7 +269,7 @@ var detalleNaveEmpresaActivity =
             }
         );
 
-    },*/
+    },
 	load: function(){
 
 		if(getInfoMyShips)
