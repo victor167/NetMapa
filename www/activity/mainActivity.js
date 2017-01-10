@@ -6,16 +6,10 @@ function onPause(){window.plugin.backgroundMode.enable();}
 var statusError401=false;
 $$(document).on('pageInit', function(e) {var page = e.detail.page;$$(page.container).find("script").each(function(el){eval($$(this).text());});}); var monthNamesShort =   ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago' , 'Sep' , 'Oct', 'Nov', 'Dic'];var monthNames      =   ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto' , 'Septiembre' , 'Octubre', 'Noviembre', 'Diciembre'];
 
-/*********************************************************************/
-var AWS_AccessKeyId = 'AKIAJWSPOK7O3C2777DA';
-var AWS_SecretAccessKey = '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';
-var AWS_Region = '';
-var AWS_BucketName = 'netinspection';
-var AWS_MaxKeys = 500;
-var AWS_Prefix = 'fileobservation/';
-var AWS_SignedUrl_Expires = 900;
-var bucket;
-var app_error = false;
+var meses    = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+var anios    = [(new Date()).getFullYear() - 1,(new Date()).getFullYear()];
+var loadTypeInspectionAndSedes=false;
+var app_error               = false;
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -35,13 +29,11 @@ var app_error = false;
  * under the License.
  */
 
-var version                 = '0.1.1';
-var API                     = 'http://app.aistracking.net/api/';
-var WEB                     = 'http://aistracking.net/';
-var UPDATE_DATABASE_MOBIL   =   '12/12/2016 12:52';
 var SESSION                 =   new Object();
 var DB;
 var UPDATE_DATABASE_COUNT   = 0;
+
+/*********************************************************************/
 
 var app = {
     initialize: function() {
