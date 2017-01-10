@@ -6,8 +6,7 @@
   <description>AIS Tracking</description>
   <author email="vrecinesm@gmail.com">Victor Recines</author>
   <content src="index.html"/>
-  <icon src="icon.png"/>
-	<!--
+
 <platform name="android">
     <allow-intent href="market:*"/>
     <icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
@@ -61,7 +60,7 @@
     <splash src="resources/ios/splash/Default@2x~iphone.png" width="640" height="960"/>
     <splash src="resources/ios/splash/Default~iphone.png" width="320" height="480"/>
   </platform>
--->
+
   <feature name="Notification">
     <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
   </feature>
