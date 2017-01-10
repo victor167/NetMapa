@@ -452,7 +452,7 @@ var DB          =   {
         DB.open("client","Client DataBase",5*1024*1024);
 
         DB.format("session",
-            "client_session.sql",
+            "resources/dtb/client_session.sql",
             function(){
                 system.dbFinish();
             },

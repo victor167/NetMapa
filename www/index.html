@@ -7,7 +7,21 @@
         <meta name="format-detection" content="telephone=no" />
         <title>AIS Tracking</title>
         <link rel="shortcut icon" href="icon.png">
-
+				<script>
+            function addcss(css){
+                var head = document.getElementsByTagName('head')[0];
+                var s = document.createElement('style');
+                s.setAttribute('type', 'text/css');
+                if (s.styleSheet) {   // IE
+                    s.styleSheet.cssText = css;
+                } else {                // the world
+                    s.appendChild(document.createTextNode(css));
+                }
+                head.appendChild(s);
+             }
+        </script>
+        <script type="text/javascript" src="version.js"></script>
+        <script type="text/javascript" src="config.js"></script>
         <meta http-equiv="Content-Security-Policy" content="" />
         <link rel="stylesheet" type="text/css" href="css/framework7.material.min.css" />
         <link rel="stylesheet" type="text/css" href="css/framework7.material.colors.min.css" />
@@ -22,7 +36,7 @@
 
         <div id="backgroundLogo">
             <div class="logo">AIS Tracking</div>
-            <img src="tramarsa.png">
+            <img src="resources/img/tramarsa.png">
         </div>
 
         <img id="img" src="" style="display:none;width:100%;">
@@ -95,7 +109,7 @@
 
                             <div class="list-block" id="moption">
                                 <ul>
-                                    <li style=" border-top: 1px solid #CCC; border-bottom: 1px solid #CCC; "> <a> <div class="item-content"> <div class="item-inner" style=" text-align: center; "><img src="tramarsa.png" style=" width: 236px; "> </div> </div> </a> </li>
+                                    <li style=" border-top: 1px solid #CCC; border-bottom: 1px solid #CCC; "> <a> <div class="item-content"> <div class="item-inner" style=" text-align: center; "><img src="resources/img/tramarsa.png" style=" width: 236px; "> </div> </div> </a> </li>
                                     
                                     <li class="right" id="logout">
                                         <a href="" class="item-link close-panel">
