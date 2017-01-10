@@ -598,7 +598,7 @@ var system                  =   {
   countCheckNoInternet: 0,
     ini:    function()
     {
-        $$("#version").html(version);
+        $$("#version").html(VERSION);
         document.addEventListener("resume", function(){
             //console.re.log("RESUME");
             //console.re.log(device);
