@@ -161,7 +161,7 @@ var detalleNaveEmpresaActivity =
                     }
                 });
                 
-                var htmlShip = '<div style="overflow: auto;height:100%" id="divAIS">' + htmlDataShip + '</div>';
+                var htmlShip = '<div class="page-content hide-bars-on-scroll" id="divAIS">' + htmlDataShip + '</div>';
                 $$("#tabnaveais").html(htmlShip);
             }
         );
@@ -196,7 +196,7 @@ var detalleNaveEmpresaActivity =
                     }
                 });
                 
-                var htmlShipCompany = '<div style="overflow: auto;height:100%" id="divShipCompany">' + htmlDataShipCompany + '</div>';
+                var htmlShipCompany = '<div class="page-content hide-bars-on-scroll" id="divShipCompany">' + htmlDataShipCompany + '</div>';
                 $$("#tabnaveinformation").html(htmlShipCompany);
             }
         );
