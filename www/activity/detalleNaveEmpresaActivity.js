@@ -133,6 +133,10 @@ var detalleNaveEmpresaActivity =
     },
     loadUcInfoShipAIS:function(id_ship, id_lenguage) {
         //alert("loadUcInfoShipAIS");
+        $$(".tabnaveais").remove();
+        $$('#tabnaveais').remove();
+        $$(".tabnaveinformation").click();
+        /*
         $$('#tabnaveais').html("");
 
         Main.restFul(
@@ -164,7 +168,8 @@ var detalleNaveEmpresaActivity =
                 var htmlShip = '<div id="divAIS">' + htmlDataShip + '</div>';
                 $$("#tabnaveais").html(htmlShip);
             }
-        );
+        );*/
+
     },
     GetUcInfoShipCompany: function(id_ship, id_lenguage) {
 
@@ -183,12 +188,17 @@ var detalleNaveEmpresaActivity =
                 console.log("GetUcInfoShipCompany");
                 //console.log(data);
                 var htmlDataShipCompany = "";
-                
+                var img_ship = "";
+                var htmlDataPhotoShip = '';
                 Object.keys(data).map(function(indexAsoc, indexNum) {
                     var title = detalleNaveEmpresaActivity.indexTabletoTitle(indexAsoc);
                     if(title!="")
                     {
                         htmlDataShipCompany += '<div class="col-md-12 pnl-item"><div> <span class="txt_title">' + title + '</span> </div><div> <span class="txt_info">'+((data[indexAsoc]==null)? "":data[indexAsoc])+'</span> </div> </div>';
+                    }
+                    else if(indexAsoc=='tx_shipfile_name')
+                    {
+                        htmlDataPhotoShip = '<div class="pnl-item"><img class="photo-info-ship" src="http://aistracking.com/Images/ship/' + data[indexAsoc] + '"></div>';
                     }
                     else
                     {
@@ -196,7 +206,7 @@ var detalleNaveEmpresaActivity =
                     }
                 });
                 
-                var htmlShipCompany = '<div id="divShipCompany">' + htmlDataShipCompany + '</div>';
+                var htmlShipCompany = '<div id="divShipCompany">' + htmlDataPhotoShip + htmlDataShipCompany + '</div>';
                 $$("#tabnaveinformation").html(htmlShipCompany);
             }
         );
@@ -235,14 +245,31 @@ var detalleNaveEmpresaActivity =
                         if(value.id_mastertable_workposition==1)
                         {
                             countInfoCapitan++;
+
+                            var PictureName = "http://aistracking.com/Images/person/blank.jpg";
+                            if(value.PictureName!="")
+                            {
+                                PictureName = "http://aistracking.com" + (value.PictureName).replace("~","");
+                            }
+
+                            $$("#naveEmpresaCapitan .photo-info-person").attr("src",PictureName);
+
                             $$("#naveEmpresaCapitan .nombre").html(value.PersonName);
                             $$("#naveEmpresaCapitan .cargo").html(value.workposition);
                             $$("#naveEmpresaCapitan .nacionalidad").html(value.birthplace);
-                        }else{
+                        }
+                        else
+                        {
+                            var PictureName = "http://aistracking.com/Images/person/blank.jpg";
+                            if(value.PictureName!="" && value.PictureName!=null)
+                            {
+                                PictureName = "http://aistracking.com" + (value.PictureName).replace("~","");
+                            }
+
                             countInfoTripulacion++;
                             htmlDataCrewList += '<li> <div class="item-content"> <div class="item-inner" style="margin: 0;"> <div class="item-title">Nombre</div> <div class="item-after">'+
                             value.PersonName
-                            +'</div> </div> </div> <div class="item-content"> <div class="item-inner" style="margin: 0;"> <div class="item-title">Cargo</div> <div class="item-after">'+
+                            +'</div> </div> </div> <img src="'+ PictureName +'" class="photo-info-person"><div class="item-content"> <div class="item-inner" style="margin: 0;"> <div class="item-title">Cargo</div> <div class="item-after">'+
                             value.workposition
                             +'</div> </div> </div> <div class="item-content"> <div class="item-inner" style="margin: 0;"> <div class="item-title">Título</div> <div class="item-after">'+
                             value.personprofession
