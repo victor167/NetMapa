@@ -194,6 +194,81 @@ var indexActivity =
     },
     initMap: function() {
 
+        var styles = [
+  {
+    "featureType": "administrative",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  }
+];
+ 
+        var styledMap = new google.maps.StyledMapType(styles,
+            { name: 'Mar' });
+
         myInfoWindow = new google.maps.InfoWindow({
             content: ''
         });
@@ -204,10 +279,16 @@ var indexActivity =
         var mainCenter = new google.maps.LatLng(-13.80997, -77.91021);
         var mapOptions = {
             zoom: 5,
-            center: mainCenter
+            center: mainCenter,
+            mapTypeControlOptions: {
+                mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+            }
         }
 
         map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+        map.mapTypes.set('map_style', styledMap);
+        map.setMapTypeId('map_style');
 
         lineSymbol = {
             path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
