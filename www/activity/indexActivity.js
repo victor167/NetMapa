@@ -200,8 +200,8 @@ var indexActivity =
 
         directionsDisplay = new google.maps.DirectionsRenderer();
         
-        var mainCenter = new google.maps.LatLng(-12.079976389372302, -77.21021929484084);
-        //var mainCenter = new google.maps.LatLng(-13.80997, -77.91021);
+        //var mainCenter = new google.maps.LatLng(-12.079976389372302, -77.21021929484084);
+        var mainCenter = new google.maps.LatLng(-13.80997, -77.91021);
         var mapOptions = {
             zoom: 5,
             center: mainCenter
