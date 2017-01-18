@@ -64,38 +64,74 @@ var detalleNaveEmpresaActivity =
             detalleNaveEmpresaActivity.loadUcInfoShipAISP(id_ship, id_lenguage);
         /////////////////////////////////////////////////////////////////////MOSTRAR MODAL
 	},
-    indexTabletoTitle:function(index){
-        switch(index){
-            case "mmsi": return "MMSI";break;
-            case "ais_imo": return "Numero IMO";break;
-            case "ais_callsign": return "Call Sign";break;
-            case "ais_shipname": return "Nombre de la nave";break;
+    indexTabletoTitle:function(index,type){
+        /*
+        type=1 //INFOBARCO
+        type=2 //INFOAIS
+        */
+        if(type==1)
+        {
+            switch(index)
+            {
+                case "mmsi": return "MMSI";break;//INFOBARCO
+                case "ais_shipname": return "Nombre de la nave";break;//INFOBARCO//INFOAIS
+                case "id_mastertable_typeship": return "Tipo de nave";break;//INFOBARCO//INFOAIS
+                case "nu_ship_eslora": return "Eslora";break;//INFOBARCO
+                case "nu_ship_manga": return "Manga";break;//INFOBARCO
+                case "nu_ship_puntal": return "Puntual";break;//INFOBARCO
+                case "nu_ship_yearbuilt": return "Fecha Fabricación";break;//INFOBARCO
+                case "nu_ship_HP": return "HP";break;//INFOBARCO
+                case "nu_ship_speed": return "Velocidad";break;//INFOBARCO
+                case "nu_ship_AB": return "AB";break;//INFOBARCO
+                default: return "";break;
+            }
+        }
+        else
+        {
+            switch(index)
+            {
+                case "ais_imo": return "Numero IMO";break;//INFOAIS
+                case "ais_callsign": return "Call Sign";break;//INFOAIS
+                case "ais_shipname": return "Nombre de la nave";break;//INFOAIS
+                case "ais_shiptype": return "Tipo de nave";break;//INFOAIS
+                case "ais_to_bow": return "Dimension to Bow";break;//INFOAIS
+                case "ais_to_stern": return "Dimension to Stern";break;//INFOAIS
+                case "ais_to_port": return "Dimension to Port";break;//INFOAIS
+                default: return "";break;
+            }
+        }
+
+        /*switch(index){
+            case "mmsi": return "MMSI";break;//INFOBARCO
+            case "ais_imo": return "Numero IMO";break;//INFOAIS
+            case "ais_callsign": return "Call Sign";break;//INFOAIS
+            case "ais_shipname": return "Nombre de la nave";break;//INFOBARCO//INFOAIS
             //case "ais_shiptype": return "Tipo de nave";break;
-            case "id_mastertable_typeship": return "Tipo de nave";break;
-            case "ais_to_bow": return "Dimension to Bow";break;
-            case "ais_to_stern": return "Dimension to Stern";break;
-            case "ais_to_port": return "Dimension to Port";break;
-            case "ais_to_starboard": return "Dimension to Starboard";break;
+            case "id_mastertable_typeship": return "Tipo de nave";break;//INFOBARCO//INFOAIS
+            case "ais_to_bow": return "Dimension to Bow";break;//INFOAIS
+            case "ais_to_stern": return "Dimension to Stern";break;//INFOAIS
+            case "ais_to_port": return "Dimension to Port";break;//INFOAIS
+            //case "ais_to_starboard": return "Dimension to Starboard";break;
 
-            case "nu_ship_eslora": return "Eslora";break;
-            case "nu_ship_manga": return "Manga";break;
-            case "nu_ship_puntal": return "Puntual";break;
-            case "tx_ship_registration": return "Registro";break;
+            case "nu_ship_eslora": return "Eslora";break;//INFOBARCO
+            case "nu_ship_manga": return "Manga";break;//INFOBARCO
+            case "nu_ship_puntal": return "Puntual";break;//INFOBARCO
+            //case "tx_ship_registration": return "Registro";break;
 
-            case "nu_ship_yearbuilt": return "Fecha Fabricación";break;
-            case "nu_ship_HP": return "HP";break;
-            case "nu_ship_speed": return "Velocidad";break;
-            case "nu_ship_AB": return "AB";break;
-            case "tx_ship_bollardpull": return "Bollard Pull";break;
+            case "nu_ship_yearbuilt": return "Fecha Fabricación";break;//INFOBARCO
+            case "nu_ship_HP": return "HP";break;//INFOBARCO
+            case "nu_ship_speed": return "Velocidad";break;//INFOBARCO
+            case "nu_ship_AB": return "AB";break;//INFOBARCO
+            //case "tx_ship_bollardpull": return "Bollard Pull";break;
 
-            case "nu_ship_grosstonnage": return "Gross tonnage";break;
-            case "nu_ship_deadweight": return "Deadweight";break;
-            case "nu_ship_lengthoverall": return "Length overall";break;
-            case "nu_ship_breadthextreme": return "Breadth extreme";break;
-            case "nu_ship_pesoenrosca": return "Peso en rosca";break;
+            //case "nu_ship_grosstonnage": return "Gross tonnage";break;
+            //case "nu_ship_deadweight": return "Deadweight";break;
+            //case "nu_ship_lengthoverall": return "Length overall";break;
+            //case "nu_ship_breadthextreme": return "Breadth extreme";break;
+            //case "nu_ship_pesoenrosca": return "Peso en rosca";break;
 
             default: return "";break;
-        }
+        }*/
     },
 	loadUcInfoShipAISP:function(id_ship, id_lenguage) {
         $$('#tabnaveais').html("");
@@ -115,7 +151,7 @@ var detalleNaveEmpresaActivity =
                 var htmlDataShip = "";
                 
                 Object.keys(data).map(function(indexAsoc, indexNum) {
-                    var title = detalleNaveEmpresaActivity.indexTabletoTitle(indexAsoc);
+                    var title = detalleNaveEmpresaActivity.indexTabletoTitle(indexAsoc,2);
                     if(title!="")
                     {
                         htmlDataShip += '<div class="col-md-12 pnl-item"><div> <span class="txt_title">' + title + '</span> </div><div> <span class="txt_info">'+((data[indexAsoc]==null)? "":data[indexAsoc])+'</span> </div> </div>';
@@ -191,7 +227,7 @@ var detalleNaveEmpresaActivity =
                 var img_ship = "";
                 var htmlDataPhotoShip = '';
                 Object.keys(data).map(function(indexAsoc, indexNum) {
-                    var title = detalleNaveEmpresaActivity.indexTabletoTitle(indexAsoc);
+                    var title = detalleNaveEmpresaActivity.indexTabletoTitle(indexAsoc,1);
                     if(title!="")
                     {
                         htmlDataShipCompany += '<div class="col-md-12 pnl-item"><div> <span class="txt_title">' + title + '</span> </div><div> <span class="txt_info">'+((data[indexAsoc]==null)? "":data[indexAsoc])+'</span> </div> </div>';
