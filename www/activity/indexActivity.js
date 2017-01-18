@@ -22,11 +22,11 @@ var load_map = false;
 
 var indexActivity = 
 {
-	ini: function() {
+    ini: function() {
         load_map = true;
-		Main.appendScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDqqseQsCvkJfCpy6gswmpUY4IBhCCrtZU&callback=indexActivity.initMap&libraries=geometry");
-	},
-	rad: function (x) {
+        Main.appendScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDqqseQsCvkJfCpy6gswmpUY4IBhCCrtZU&callback=indexActivity.initMap&libraries=geometry");
+    },
+    rad: function (x) {
         return x * Math.PI / 180;
     },
     getDistance: function (p1, p2) {
@@ -44,10 +44,10 @@ var indexActivity =
         window.location.href = "Browser.aspx";
     },
     GoGuardia: function(){
-    	window.location.href = "../Guard.aspx";
+        window.location.href = "../Guard.aspx";
     },
     fnEnableTool: function(){
-	    if(point1!=null)
+        if(point1!=null)
             point1.setMap(null);
         if(point2!=null)
             point2.setMap(null);
@@ -124,7 +124,7 @@ var indexActivity =
         return color;
     },
     lg: function(s){
-    	console.log(s);
+        console.log(s);
     },
     fnDialog: function(id_ship, marker) {
         select_id_ship  = id_ship;
@@ -194,6 +194,81 @@ var indexActivity =
     },
     initMap: function() {
 
+        var styles = [
+  {
+    "featureType": "administrative",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  }
+];
+ 
+        var styledMap = new google.maps.StyledMapType(styles,
+            { name: 'Mar' });
+
         myInfoWindow = new google.maps.InfoWindow({
             content: ''
         });
@@ -204,10 +279,16 @@ var indexActivity =
         var mainCenter = new google.maps.LatLng(-13.80997, -77.91021);
         var mapOptions = {
             zoom: 5,
-            center: mainCenter
+            center: mainCenter,
+            mapTypeControlOptions: {
+                mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+            }
         }
 
         map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+        map.mapTypes.set('map_style', styledMap);
+        map.setMapTypeId('map_style');
 
         lineSymbol = {
             path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
@@ -602,6 +683,6 @@ var indexActivity =
             indexActivity.initMap();
         }
 
-    	//////////////////////////////////////////
+        //////////////////////////////////////////
     }
 }
