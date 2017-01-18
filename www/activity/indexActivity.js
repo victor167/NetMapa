@@ -22,11 +22,11 @@ var load_map = false;
 
 var indexActivity = 
 {
-	ini: function() {
+    ini: function() {
         load_map = true;
-		Main.appendScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDqqseQsCvkJfCpy6gswmpUY4IBhCCrtZU&callback=indexActivity.initMap&libraries=geometry");
-	},
-	rad: function (x) {
+        Main.appendScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDqqseQsCvkJfCpy6gswmpUY4IBhCCrtZU&callback=indexActivity.initMap&libraries=geometry");
+    },
+    rad: function (x) {
         return x * Math.PI / 180;
     },
     getDistance: function (p1, p2) {
@@ -44,10 +44,10 @@ var indexActivity =
         window.location.href = "Browser.aspx";
     },
     GoGuardia: function(){
-    	window.location.href = "../Guard.aspx";
+        window.location.href = "../Guard.aspx";
     },
     fnEnableTool: function(){
-	    if(point1!=null)
+        if(point1!=null)
             point1.setMap(null);
         if(point2!=null)
             point2.setMap(null);
@@ -124,7 +124,7 @@ var indexActivity =
         return color;
     },
     lg: function(s){
-    	console.log(s);
+        console.log(s);
     },
     fnDialog: function(id_ship, marker) {
         select_id_ship  = id_ship;
@@ -683,6 +683,6 @@ var indexActivity =
             indexActivity.initMap();
         }
 
-    	//////////////////////////////////////////
+        //////////////////////////////////////////
     }
 }
