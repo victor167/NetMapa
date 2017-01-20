@@ -16,3 +16,164 @@
 {
 	border-bottom: 6px solid #e1e1e1;
 }
+#btnSearch
+{
+	line-height: 44px;
+	width: 55px;
+	text-align: center;
+	padding-top: 12px;
+}
+#search{
+	padding: 10px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    /*bottom: 20px;*/
+    top: 55px;
+    display: none;
+}
+#search.show{
+	display: block!important;
+}
+#search .search.input{
+	width: 100%;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.97);
+}
+#search .search [type="text"]{
+	width: 90%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    font-size: 1.4em;
+    border-radius: 2px;
+    color: #828181;
+    background: transparent;
+}
+#search .search.results{
+	background: rgba(252, 254, 255, 0.71);
+    color: #8c8c8c;
+    position: absolute;
+    bottom: 0;
+    top: 55px;
+    overflow: scroll;
+    left: 0;
+    right: 0;
+    margin: 10px;
+}
+#search .search.results .result{
+	padding: 15px 10px;
+    border-bottom: 1px solid rgba(232, 232, 232, 0.75);
+}
+#search .result-empty{
+	text-align: center;
+    margin-top: 13px;
+}
+#search .clear{
+    float: right;
+    margin-top: -50px;
+    right: 0;
+    padding: 10px 14px;
+    position: relative;
+    z-index: 10;
+}
+#search.result-list{
+	bottom: 20px;
+}
+#search .search-icon{
+width: 10%;
+    height: 50px;
+    float: left;
+}
+/****************************/
+/*CIRCLE*/
+#search .icon.circle{
+	background: #03A9F4;
+    width: 16px;
+    height: 16px;
+    border-radius: 25px;
+    border: 2px solid #CCC;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+/*ARROW*/
+#search .icon.arrow{
+	padding-top: 13px;
+    text-align: center;
+}
+#search .icon.arrow i{
+	color: #FFEB3B;
+    text-shadow: -2px 0px red, 0px -3px red, 1px 0px red, 0px 2px red;
+}
+#search .icon.triangle{
+    color: #FFEB3B;
+    text-shadow: -2px 0px red, 0px -2px red, 1px 0px red, 1px 1px red, 4px 1px red, -3px 1px red;
+}
+#search .icon.triangle i{
+    font-size: 50px;
+    margin-left: -8px;
+}
+/*SQUARE*/
+#search .icon.square{
+	background: #03A9F4;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #CCC;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+/*DIAMOND*/
+#search .icon.diamond{
+	background: #03A9F4;
+    width: 14px;
+    height: 14px;
+    border: 2px solid #CCC;
+    margin: 0 auto;
+    margin-top: 15px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+/*CROSS*/
+#search .icon.cross{
+	background: #03A9F4;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #CCC;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+#search .icon.cross::before {
+    content: "X";
+    position: absolute;
+    margin-top: -4px;
+    margin-left: 2px;
+    font-family: sans-serif;
+    font-size: 1.2em;
+}
+/*HEXAGONAL*/
+#search .icon.hexagon {
+	width: 20px;
+    margin: 0;
+    padding: 0;
+    margin-left: 7px;
+    margin-top: 11px;
+}
+#search .icon.hexagon .box1{
+    width: 0;
+    border-bottom: 8px solid #6C6;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+#search .icon.hexagon .box2{
+    width: 20px;
+    height: 12px;
+    background-color: #6C6;
+}
+#search .icon.hexagon .box3{
+    width: 0;
+    border-top: 8px solid #6C6;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+/****************************/

@@ -41,12 +41,11 @@ var app = {
             Main.exit();
         });
 
-        
-        
-        $$(document).on('click','#version',function(e){
+        /*$$(document).on('click','#version',function(e){
             $$(this).css("opacity","0");
         });
-
+        */
+        
         $$("#logout").on("click",function(){
             Main.logout();
         });

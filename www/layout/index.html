@@ -7,12 +7,33 @@
                 </a>
             </div>
             <div class="center">Mapa</div>
+            <div class="right">
+                <div id="btnSearch">
+                    <i class="material-icons">search</i>
+                </div>
+            </div>
         </div>
         
     </div>
 
     <div class="page-content">
-        <div id="map"  style="background: #2196f3;position: absolute;top: 50px;right: 0;left: 0;bottom: 0;"></div>
+        <div id="search" style="display: none;">
+          <div class="search input">
+            <div class="search-icon"></div>
+            <input type="text" value="" placeholder="Buscar barco">
+            <div class="clear">
+                <i class="material-icons">close</i>
+            </div>
+          </div>
+          <div class="search results" style="display: none;">
+            <div class="content-result" >
+                
+            </div>
+            <!--<div class="result">Aleluya</div>-->
+          </div>
+        </div>
+
+        <div id="map"  style="background: #2196f3;position: absolute;top: 0px;right: 0;left: 0;bottom: 0;"></div>
 
         <!-- Modal nivel sumario (barco) !-->
         <div class="modal fade" id="mdlInfoBarco" tabindex="-1" role="dialog" aria-labelledby="mdlInfoBarco">
