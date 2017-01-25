@@ -47,30 +47,53 @@ var indexActivity =
             }
         });
 
+        function search_regex(complete,search)
+        {
+            var returning = new Object;
+            var expsearch = new RegExp("^" + search.toLowerCase());
+            resultExpsearch = expsearch.test(complete.toLowerCase());
+            if(resultExpsearch)
+            {
+                returning.result    = true;
+                nsearch             = (complete.toLowerCase()).search(expsearch);
+                nsearchCount        = search.toLowerCase().length;
+                searchChart         = (complete).substring(nsearch, nsearch + nsearchCount);
+                returning.complete  = (complete).replace(searchChart,'<b style="color:black;">'+searchChart+'</b>');
+            }
+            else
+            {
+                returning.result    = false;
+                returning.complete  = complete;
+            }
+
+            return returning;
+        }
+
         $$("body").on('keyup','#search input[type="text"]',function(){
             $$("#search .search-icon").html('');
-            var shipNameSeach = $$(this).val();
-            console.log("shipNameSeach: " + shipNameSeach);
+            var shipSeach = $$(this).val();
+            console.log("shipSeach: " + shipSeach);
 
             $$("#search .search.results .content-result").html("");
-            if(shipNameSeach!="")
+            if(shipSeach!="")
             {
                 $$("#search").addClass("result-list");
                 $$("#search .search.results").show();
                 var countSearch = 0;
                 $$.each(indexActivity.ships,function(index,value){
-                    var expShipNameSeach = new RegExp(shipNameSeach.toLowerCase());
-                    if(expShipNameSeach.test(value.shipname.toLowerCase()))
+
+                    var searchName = search_regex(value.shipname,shipSeach);
+                    if(searchName.result)
                     {
                         countSearch++;
-                        console.log("shipname: " + value.shipname);
-                        $$("#search .search.results .content-result").append('<div class="result" data-id="'+index+'" data-idComp="'+value.id_company+'" data-back="'+value.shiptypeColor+'" data-shape="'+value.NavigationStatusShape+'" data-lat="'+value.lat+'" data-lon="'+value.lon+'">'+value.shipname+'</div>');
+                        
+                        $$("#search .search.results .content-result").append('<div class="result" data-id="'+index+'" data-idComp="'+value.id_company+'" data-back="'+value.shiptypeColor+'" data-shape="'+value.NavigationStatusShape+'" data-lat="'+value.lat+'" data-lon="'+value.lon+'" data-name="'+value.shipname+'">' + searchName.complete + ' ['+value.shiptypeDesc+']' + '</div>');
                     }
                 });
 
                 if(countSearch==0)
                 {
-                    $$("#search .search.results .content-result").append('<div class="result-empty">No se encontro ningun barco</div>');
+                    $$("#search .search.results .content-result").append('<div class="result-empty">No se encontro ningun barco con ese nombre</div>');
                 }
             }else{
                 $$("#search").removeClass("result-list");
@@ -84,7 +107,8 @@ var indexActivity =
             var shape       = $$(this).attr("data-shape");
             var lati        = parseFloat($$(this).attr("data-lat"));
             var lon         = parseFloat($$(this).attr("data-lon"));
-            var nameShip    = $$(this).html();
+            var nameShip    = parseFloat($$(this).attr("data-name"));
+            //var nameShip    = $$(this).html();
 
             var color       = "#2196F3";
             if(idcomp==id_company)
@@ -422,6 +446,7 @@ var indexActivity =
         var mapOptions = {
             zoom: 5,
             center: mainCenter,
+            disableDefaultUI: true,
             mapTypeControlOptions: {
                 mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
             }
