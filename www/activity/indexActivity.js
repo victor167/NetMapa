@@ -108,7 +108,7 @@ var indexActivity =
             var shape       = $$(this).attr("data-shape");
             var lati        = parseFloat($$(this).attr("data-lat"));
             var lon         = parseFloat($$(this).attr("data-lon"));
-            var nameShip    = parseFloat($$(this).attr("data-name"));
+            var nameShip    = $$(this).attr("data-name");
             //var nameShip    = $$(this).html();
 
             var color       = "#2196F3";
