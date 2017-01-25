@@ -37,6 +37,7 @@ var indexActivity =
             console.log("LIMPIANDO");
             $$("#search .search-icon").html('');
             $$('#search .search.input input[type="text"]').val("");
+            $$("#search").removeClass("result-list");
         });
 
         $$("body").on('click','#search input[type="text"]',function(){
