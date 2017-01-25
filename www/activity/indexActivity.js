@@ -20,12 +20,178 @@ var select_marker;
 
 var load_map = false;
 
+var id_company=2;
+
 var indexActivity = 
 {
     ini: function() {
+        
+        $$("body").on("click","#btnSearch",function(){
+            $$("#search .search-icon").html('');
+
+            $$("#search").toggleClass("show");
+            $$('#search .search.input input[type="text"]').val("").focus();
+        });
+
+        $$("body").on("click","#search .clear",function(){
+            console.log("LIMPIANDO");
+            $$("#search .search-icon").html('');
+            $$('#search .search.input input[type="text"]').val("");
+        });
+
+        $$("body").on('click','#search input[type="text"]',function(){
+            console.log("CLICK SEARCH");
+            var countSerachExist = $$("#search .content-result .result").length;
+            if(countSerachExist>0){
+                $$("#search").addClass("result-list");
+            }
+        });
+
+        function search_regex(complete,search)
+        {
+            var returning = new Object;
+            var expsearch = new RegExp("^" + search.toLowerCase());
+            resultExpsearch = expsearch.test(complete.toLowerCase());
+            if(resultExpsearch)
+            {
+                returning.result    = true;
+                nsearch             = (complete.toLowerCase()).search(expsearch);
+                nsearchCount        = search.toLowerCase().length;
+                searchChart         = (complete).substring(nsearch, nsearch + nsearchCount);
+                returning.complete  = (complete).replace(searchChart,'<b style="color:black;">'+searchChart+'</b>');
+            }
+            else
+            {
+                returning.result    = false;
+                returning.complete  = complete;
+            }
+
+            return returning;
+        }
+
+        $$("body").on('keyup','#search input[type="text"]',function(){
+            $$("#search .search-icon").html('');
+            var shipSeach = $$(this).val();
+            console.log("shipSeach: " + shipSeach);
+
+            $$("#search .search.results .content-result").html("");
+            if(shipSeach!="")
+            {
+                $$("#search").addClass("result-list");
+                $$("#search .search.results").show();
+                var countSearch = 0;
+                $$.each(indexActivity.ships,function(index,value){
+
+                    var searchName = search_regex(value.shipname,shipSeach);
+                    if(searchName.result)
+                    {
+                        countSearch++;
+                        
+                        $$("#search .search.results .content-result").append('<div class="result" data-id="'+index+'" data-idComp="'+value.id_company+'" data-back="'+value.shiptypeColor+'" data-shape="'+value.NavigationStatusShape+'" data-lat="'+value.lat+'" data-lon="'+value.lon+'" data-name="'+value.shipname+'">' + searchName.complete + ' ['+value.shiptypeDesc+']' + '</div>');
+                    }
+                });
+
+                if(countSearch==0)
+                {
+                    $$("#search .search.results .content-result").append('<div class="result-empty">No se encontro ningun barco con ese nombre</div>');
+                }
+            }else{
+                $$("#search").removeClass("result-list");
+                $$("#search .search.results").hide();
+            }
+        });
+
+        $$("body").on("click","#search .content-result .result",function(){
+            var id          = $$(this).attr("data-id");
+            var idcomp      = parseInt($$(this).attr("data-idcomp"));
+            var shape       = $$(this).attr("data-shape");
+            var lati        = parseFloat($$(this).attr("data-lat"));
+            var lon         = parseFloat($$(this).attr("data-lon"));
+            var nameShip    = parseFloat($$(this).attr("data-name"));
+            //var nameShip    = $$(this).html();
+
+            var color       = "#2196F3";
+            if(idcomp==id_company)
+            {
+                color       = "#F44336";
+            }
+
+            var background  = "#000c18";
+            if($$(this).attr("data-back")!="")
+            {
+                background  = $$(this).attr("data-back");
+            }
+
+
+            if(shape=="point")
+            {
+                $$("#search .search-icon").html('<div class="icon circle" style="border: 2px solid '+color+';background: '+background+';"></div>');
+            }
+            else if(shape=="arrow")//PROCESS
+            {
+                $$("#search .search-icon").html('<div class="icon arrow" ><i class="material-icons" style="color: '+background+'; text-shadow: -2px 0px '+color+', 0px -3px '+color+', 1px 0px '+color+', 0px 2px '+color+';">navigation</i></div>');
+            }
+            else if(shape=="square")
+            {
+                $$("#search .search-icon").html('<div class="icon square" style="background: '+background+';border: 2px solid '+color+';"></div>');
+            }
+            else if(shape=="diamond")
+            {
+                $$("#search .search-icon").html('<div class="icon diamond" style="background: '+background+';border: 2px solid '+color+';"></div>');
+            }
+            else if(shape=="triangle")
+            {
+                $$("#search .search-icon").html('<div class="icon triangle"><i class="material-icons" style="color: '+background+'; text-shadow: -2px 0px '+color+', 0px -2px '+color+', 1px 0px '+color+', 1px 1px '+color+', 4px 1px '+color+', -3px 1px '+color+';">&#xE5C7;</i></div>');
+            }
+            else if(shape=="cross")
+            {
+                $$("#search .search-icon").html('<div class="icon cross" style="background: '+background+';border: 2px solid '+color+';"></div>');
+            }
+            else if(shape=="hexagon")
+            {
+                $$("#search .search-icon").html('<div class="icon hexagon" > <div class="box1" style="border-bottom: 8px solid '+background+';"></div> <div class="box2" style="background-color: '+background+';"></div> <div class="box3" style="border-top: 8px solid '+background+';"></div> </div>');
+            }
+            else
+            {
+                $$("#search .search-icon").html('');
+            }
+
+            console.log("lat: " + lati);
+            console.log("lng: " + lon);
+
+            marker = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                position: {lat: lati, lng: lon}
+            });
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+
+            setTimeout(function(){
+                //marker.setAnimation(null);
+                setTimeout(function(){
+                    marker.setMap(null);
+                },190);
+            },2000);
+
+            $$("#search .content-result .result").hide();
+            $$(this).show();
+            $$("#search").removeClass("result-list");
+            $$('#search .search.input input[type="text"]').val(nameShip);
+            var mainCenter = new google.maps.LatLng(lati, lon);
+            map.setCenter(mainCenter);
+            map.setZoom(15);
+
+        });
+
+        /*
+
+        */
+
         load_map = true;
         Main.appendScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDqqseQsCvkJfCpy6gswmpUY4IBhCCrtZU&callback=indexActivity.initMap&libraries=geometry");
     },
+    ships:[],
     rad: function (x) {
         return x * Math.PI / 180;
     },
@@ -280,6 +446,7 @@ var indexActivity =
         var mapOptions = {
             zoom: 5,
             center: mainCenter,
+            disableDefaultUI: true,
             mapTypeControlOptions: {
                 mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
             }
@@ -297,10 +464,11 @@ var indexActivity =
         directionsDisplay.setMap(map);
         
         indexActivity.RefreshBoat();
-        /*setTimeout('GetVal()', 20000);
+
+        setTimeout(indexActivity.GetVal, 20000);
 
 
-        $('#btn_wide').click(function () {
+        /*$('#btn_wide').click(function () {
             $('#panel-input').hide('fast');
             $('#btn_show').show();
         });
@@ -437,21 +605,38 @@ var indexActivity =
     },
     GetVal:function() {
         var str_tx_val_key = 'TimeRefreshWeb'; //'20';
-        $$.ajax({
+
+        /*$$.ajax({
             type: "POST",
             url: "MyTracking.aspx/GetVal",
             data: '{str_tx_val_key: "' + str_tx_val_key + '" }',
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            success: ValResponse,
+            success: indexActivity.ValResponse,
             failure: function (response) {
                 alert(response);
             }
-        });
+        });*/
+
+        /*Main.restFul(
+            API + 'MapGetTimeRefresh',
+            'GET',
+            {
+                str_tx_val_key:str_tx_val_key
+            },
+            function(respondBody,respondHeader)
+            {
+                var data = respondBody.data;
+                indexActivity.ValResponse(data);
+            }
+        );*/
+
+        indexActivity.ValResponse({d:120});
+
     },
     MainRefresh:function() {
-        RefreshBoat();
-        setTimeout('indexActivity.zoomToFit()', 2000);
+        indexActivity.RefreshBoat();
+        setTimeout(indexActivity.zoomToFit, 2000);
     },
     RefreshBoat: function() {
         indexActivity.removeRectangle();
@@ -467,7 +652,8 @@ var indexActivity =
             function(respondBody,respondHeader)
             {
                 console.log("AddArrayPoint");
-                indexActivity.AddArrayPoint(respondBody.data);
+                indexActivity.ships = JSON.parse(respondBody.data.d);
+                indexActivity.AddArrayPoint();
             }
         );
 
@@ -505,17 +691,18 @@ var indexActivity =
         }
     },
     ValResponse:function(response) {
+        console.log("VALRESPONSE");
         try {
             str_mapRefresh = response.d;
-            setInterval('indexActivity.RefreshBoat()', parseInt(str_mapRefresh) * 1000);
+            setInterval(indexActivity.RefreshBoat, parseInt(str_mapRefresh) * 1000);
         }
         catch (err) {
-            //alert(err.message);
+            alert(err.message);
         }
     },
-    AddArrayPoint:function(response) {
+    AddArrayPoint:function() {
         try {
-            result = JSON.parse(response.d);
+            result = indexActivity.ships;
             var marker0;
             var marker1;
             var line;
@@ -542,23 +729,11 @@ var indexActivity =
                     fladmill = admill;
                     admill = admill.toFixed(2);
 
-                    if (result[i].id_company == '2') {
-                        //alert(result[i].bo_guard_state);
+                    if (parseInt(result[i].id_company) == id_company)
+                    {
                         vfillOpacity = 0.5;
                         vstrokeOpacity = 1;
                         vstrokeColor = '#FF0000';
-                        //var myLatlng1 = { lat: lat1, lng: lon1 };
-                        //var cityCircle = new google.maps.Circle({
-                        //    strokeColor: '#FF0000',
-                        //    strokeOpacity: 0.8,
-                        //    strokeWeight: 2,
-                        //    fillColor: '#FF0000',
-                        //    fillOpacity: 0.35,
-                        //    map: map,
-                        //    center: myLatlng1,
-                        //    radius: 5
-                        //});
-
                     }
 
                     if (result[i].NavigationStatusShape == 'point')
@@ -625,12 +800,9 @@ var indexActivity =
                             }
                         }
                     }
-                    if (result[i].id_company == '2') {
-                        //marker1.setAnimation(google.maps.Animation.BOUNCE);
-                    }
                     
-                    var strInfoMessage = '<b>Ship Name:</b> ' + result[i].shipname + '<br>';
-                    strInfoMessage += '<b>Ship Type:</b> ' + result[i].shiptypeDesc + '<br>';
+                    var strInfoMessage = '<b>Nombre del barco:</b> ' + result[i].shipname + '<br>';
+                    strInfoMessage += '<b>Tipo de barco:</b> ' + result[i].shiptypeDesc + '<br>';
                     strInfoMessage += '<b>MMSI:</b> ' + result[i].mmsi + '<br>';
                     strInfoMessage += '<b>IMO:</b> ' + result[i].imo + '<br>';
                     strInfoMessage += '<b>Call Sign:</b> ' + result[i].callsign + '<br>';
@@ -639,7 +811,6 @@ var indexActivity =
                     strInfoMessage += '<b>Speed:</b> ' + admill + " Kntos<br>";
                     strInfoMessage += '<b>Draught:</b> ' + result[i].draught + ' mts.';
 
-                    // add an event listener for this marker
                     indexActivity.bindInfoWindow(marker1, map, myInfoWindow, strInfoMessage, result[i].id_ship);
                     marker1.setMap(map);
                     markersArray.push(marker1);
@@ -650,8 +821,8 @@ var indexActivity =
             }
         }
         catch (err) {
-            alert(err.message + ' Start:' + response.d);
-            console.log("error", response.d);
+            alert(err.message + ' Start:' + indexActivity.ships);
+            console.log("error", indexActivity.ships);
         }
     },
     load: function(){
