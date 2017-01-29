@@ -445,7 +445,7 @@ thead tr th{
 .material-icons.md-48 { font-size: 48px; }
 textarea:focus, input:focus{
     outline: none;
-}
+}*/
 #noInternetConnection
 {
     display: none;
@@ -463,7 +463,7 @@ textarea:focus, input:focus{
 
 body{
       background: white!important;
-}*/
+}
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {
         background-position:left center;
