@@ -32,6 +32,7 @@ var indexActivity =
         div = document.getElementById("map_canvas3");
         map = plugin.google.maps.Map.getMap(div);
         map.one(plugin.google.maps.event.MAP_READY, function() {
+            console.re.log("map_ready");
             indexActivity.map_ready();
         });
     },
