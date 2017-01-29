@@ -445,7 +445,7 @@ thead tr th{
 .material-icons.md-48 { font-size: 48px; }
 textarea:focus, input:focus{
     outline: none;
-}*/
+}
 #noInternetConnection
 {
     display: none;
@@ -459,7 +459,7 @@ textarea:focus, input:focus{
     color: #ffffff;
     padding-left: 20px;
     z-index: 999;
-}
+}*/
 
 body{
       background: white!important;
