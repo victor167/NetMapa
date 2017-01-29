@@ -75,16 +75,16 @@ var app = {
         Main.internet(function(){
             app.loadInitLayout(function(){
 
-                mainView.router.load({
+                /*mainView.router.load({
                     'url':'layout/login.html',
                     'animatePages':false
-                });
+                });*/
 
                 setTimeout(function(){
-                    mainView.router.load({
+                    /*mainView.router.load({
                         'url':'layout/index.html',
                         'animatePages':false
-                    });
+                    });*/
                 },250);
 
             });
