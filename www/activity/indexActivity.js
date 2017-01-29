@@ -887,7 +887,7 @@ var indexActivity =
         }
     },
     load: function(){
-        if(!load_map)
+        /*if(!load_map)
         {
 
              point1=null;
@@ -913,7 +913,7 @@ var indexActivity =
 
             console.log("RECARGANDO MAPA");
             indexActivity.initMap();
-        }
+        }*/
 
         //////////////////////////////////////////
     }
