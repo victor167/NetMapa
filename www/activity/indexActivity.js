@@ -32,7 +32,7 @@ var indexActivity =
 
         alert("map_ready");
       //div = document.getElementById("map_canvas3");
-      /*div = $$("#map_canvas3")[0];
+      div = $$("#map_canvas3")[0];
       map = plugin.google.maps.Map.getMap(div);
       map.one(plugin.google.maps.event.MAP_READY, function() {
         alert("map_ready");
@@ -91,7 +91,7 @@ var indexActivity =
             map.moveCamera({target:bounds});
           });
 
-        }*/
+        }
 
 
 
