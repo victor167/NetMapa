@@ -28,7 +28,6 @@
         <link rel="stylesheet" type="text/css" href="css/index.css" />
 
         <link rel="stylesheet" type="text/css" href="css/common.css" />
-        <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/loader.js"></script>
     </head>
     <body>
@@ -53,7 +52,7 @@
             <div class="map" id="map_canvas3"></div>
         </section>
 
-        <script type="text/javascript">
+       <script type="text/javascript">
             window.onerror = function(msg, url, line, col, error) {
                 alert("error");
                 var extra = !col ? '' : '\ncolumn: ' + col;
@@ -67,14 +66,24 @@
                 var isCordovaApp = !!window.cordova;
                 return isCordovaApp;
             }
-        </script>
 
+        </script>
+        <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript">
             var consolere = {
                 channel:'aistracking',
                 api:'http://console.re/connector.js',
                 ready: function(c) {var d=document,s=d.createElement('script'),l;s.src=this.api;s.id='consolerescript';s.onreadystatechange=s.onload=function(){if(!l){c();}l=true;};d.getElementsByTagName('head')[0].appendChild(s);}};
         </script>
+
+
+        <script type="text/javascript" src="js/framework7.min.js"></script>
+        <script type="text/javascript" src="js/mustache.min.js"></script>
+        <script type="text/javascript" src="js/moment.min.js"></script>
+        <script type="text/javascript" src="js/moment-with-locales.js"></script>
+        <script type="text/javascript" src="js/kitchen-sink.js"></script>
+        <script type="text/javascript" src="js/html5sql.js"></script>
+        <script type="text/javascript" src="activity/mainActivity.js"></script>
 
         <script type="text/javascript">
             var IS_READY=false;
@@ -87,7 +96,6 @@
                         console.re.log("READY");
                         console.re.log(device);
                         clearInterval(PROJECT_INTERVAL);
-                        //system.ini();
                         alert("system.ini");
                     }
                 },100);
@@ -114,7 +122,6 @@
                 PROJECT_INITIALIZE = true;
             }, false);
         </script>
-
     </body>
 
 </html>
