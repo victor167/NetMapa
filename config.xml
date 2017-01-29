@@ -66,7 +66,34 @@
     <splash src="resources/ios/splash/Default@2x~iphone.png" width="640" height="960"/>
     <splash src="resources/ios/splash/Default~iphone.png" width="320" height="480"/>
   </platform>
-  
+
+  <feature name="Notification">
+    <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
+  </feature>
+
+  <plugin name="cordova-plugin-camera-all-files" source="npm" spec="~2.1.20-dev"/>
+  <plugin name="cordova-plugin-file" source="npm" spec="4.3.0"/>
+  <plugin name="cordova-plugin-file-transfer" source="npm" spec="1.6.0"/>
+  <plugin name="cordova-plugin-console" source="npm" spec="~1.0.4"/>
+  <plugin name="cordova-plugin-device" source="npm" spec="~1.1.1"/>
+  <plugin name="cordova-plugin-device-motion" source="npm" spec="~1.2.0"/>
+  <plugin name="cordova-plugin-device-orientation" source="npm" spec="~1.0.2"/>
+  <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0"/>
+  <plugin name="cordova-plugin-sqlite" source="npm" spec="1.0.3"/>
+  <plugin name="cordova-plugin-network-information" source="npm" spec="~1.2.0"/>
+  <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
+  <gap:plugin name="onesignal-cordova-plugin" source="npm" />
+  <gap:plugin name="cordova-plugin-background-mode" source="npm"/>
+
+  <!--PLUGIN-->
+  <platform name="android">
+    <plugin name="cordova-plugin-splashscreen" source="npm" spec="~3.2.1"/>
+    <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2"/>
+    <plugin spec="https://github.com/victor167/TaskDescriptionAndStatusBarColor.git" source="git" />
+  </platform>
+
+  <plugin spec="https://github.com/cordova-sms/cordova-sms-plugin.git" source="git" />
+
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
@@ -83,7 +110,7 @@
     <engine name="android" spec="latest" />
     <engine name="ios" spec="latest" />
     <plugin name="cordova-plugin-wkwebview-engine" spec="~1.1.0" />
-    <plugin name="cordova-plugin-console" spec="~1.0.4" />
+    <!--<plugin name="cordova-plugin-console" spec="~1.0.4" />-->
     <plugin name="cordova-plugin-googlemaps" spec="https://github.com/victor167/cordova-plugin-googlemaps-master">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyCuqkgpLObHb_kwkkOJXqoTpZXceThYsog" />
         <variable name="API_KEY_FOR_IOS" value="AIzaSyCuqkgpLObHb_kwkkOJXqoTpZXceThYsog" />
