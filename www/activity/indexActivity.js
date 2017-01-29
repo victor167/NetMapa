@@ -51,7 +51,7 @@ var indexActivity =
     addMarkers: function (map, data, callback) 
     {
       data.forEach(function(markerOptions) {
-        map.addMarker(markerOptions, function(){
+        map.addMarker(markerOptions, function(marker){
             indexActivity.markers.push(marker);
 
             // If you click on a marker, the marker's icon will be changed.
