@@ -1,4 +1,4 @@
-window.alert = function (txt,callback){myApp.alert(txt,callback);};
+/*window.alert = function (txt,callback){myApp.alert(txt,callback);};*/
 function isIOS() {return navigator.userAgent.match(/(iPad|iPhone|iPod)/g);}
 function onResume(){window.plugin.backgroundMode.disable();}
 function onPause(){window.plugin.backgroundMode.enable();}
