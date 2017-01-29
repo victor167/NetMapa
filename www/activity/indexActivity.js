@@ -29,12 +29,7 @@ var div;
 var indexActivity = 
 {
     ini: function(){
-        div = document.getElementById("map_canvas3");
-        map = plugin.google.maps.Map.getMap(div);
-        map.one(plugin.google.maps.event.MAP_READY, function() {
-            console.re.log("map ready");
-            indexActivity.map_ready();
-        });
+        
     },
     POINTS : 
     [
@@ -86,6 +81,8 @@ var indexActivity =
       });*/
 
     },
+
+
     /*ini: function() {
         
         $$("body").on("click","#btnSearch",function(){

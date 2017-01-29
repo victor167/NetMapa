@@ -138,7 +138,14 @@
         <section class="demo">
             <div class="map" id="map_canvas3"></div>
         </section>
-
+        <script>
+            div = document.getElementById("map_canvas3");
+            map = plugin.google.maps.Map.getMap(div);
+            map.one(plugin.google.maps.event.MAP_READY, function() {
+                console.re.log("map ready");
+                //indexActivity.map_ready();
+            });
+        </script>
         <div id="leyenda-picker-modal-action" class="picker-modal">
             <div class="toolbar">
                 <div class="toolbar-inner">
