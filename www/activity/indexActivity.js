@@ -30,6 +30,7 @@ var indexActivity =
 {
     ini: function(){
         console.re.log("map_ready");
+        $$("#map_canvas3").addClass("show");
         setTimeout(function(){
             div = $$("#map_canvas3")[0];
             map = plugin.google.maps.Map.getMap(div);
