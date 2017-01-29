@@ -4,21 +4,6 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' gap:; script-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; object-src *; style-src 'self' data: 'unsafe-inline' *; img-src 'self' data:; media-src 'self' data:; font-src 'self' data:; connect-src *">
-        <script>
-            function addcss(css){
-                var head = document.getElementsByTagName('head')[0];
-                var s = document.createElement('style');
-                s.setAttribute('type', 'text/css');
-                if (s.styleSheet) {   // IE
-                    s.styleSheet.cssText = css;
-                } else {                // the world
-                    s.appendChild(document.createTextNode(css));
-                }
-                head.appendChild(s);
-             }
-        </script>
-        <script type="text/javascript" src="version.js"></script>
-        <script type="text/javascript" src="config.js"></script>
 
         <link rel="stylesheet" type="text/css" href="css/common.css" />
         <script type="text/javascript" src="cordova.js"></script>
