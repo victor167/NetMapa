@@ -339,7 +339,7 @@ color: #3d3d3d!important;
     position: absolute;
     width: 100%;
 }
-/*
+
 .user-info{
   background: #2196f3!important;
   color: white;
@@ -459,11 +459,11 @@ textarea:focus, input:focus{
     color: #ffffff;
     padding-left: 20px;
     z-index: 999;
-}*/
-
-body{
-      background: white!important;
 }
+
+/*body{
+      background: white!important;
+}*/
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {
         background-position:left center;
