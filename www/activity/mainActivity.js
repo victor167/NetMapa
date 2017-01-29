@@ -74,13 +74,14 @@ var app = {
 
         Main.internet(function(){
             app.loadInitLayout(function(){
-
+                Main.backgroundTopHide();
                 /*mainView.router.load({
                     'url':'layout/login.html',
                     'animatePages':false
                 });*/
 
                 setTimeout(function(){
+                    Main.backgroundTopHide();
                     /*mainView.router.load({
                         'url':'layout/index.html',
                         'animatePages':false
