@@ -44,5 +44,12 @@
   <plugin name="cordova-plugin-device" source="npm" spec="~1.1.1"/>
   <plugin name="cordova-plugin-device-motion" source="npm" spec="~1.2.0"/>
   <plugin name="cordova-plugin-device-orientation" source="npm" spec="~1.0.2"/>
-  
+    <platform name="android">
+    <plugin name="cordova-plugin-splashscreen" source="npm" spec="~3.2.1"/>
+    <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2"/>
+    <plugin spec="https://github.com/victor167/TaskDescriptionAndStatusBarColor.git" source="git" />
+  </platform>
+    <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0"/>
+  <plugin name="cordova-plugin-sqlite" source="npm" spec="1.0.3"/>
+  <plugin name="cordova-plugin-network-information" source="npm" spec="~1.2.0"/>
 </widget>
