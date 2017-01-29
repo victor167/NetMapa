@@ -339,14 +339,9 @@ color: #3d3d3d!important;
     position: absolute;
     width: 100%;
 }
-
 /*
-#listOptions .item-content.user .item-inner:after{
-  background-color: rgba(255, 255, 255, 0)!important;
-}*/
 .user-info{
   background: #2196f3!important;
-  /*border-top: 4px solid #1688e2;*/
   color: white;
   padding-top: 2px;
   padding-bottom: 2px;
@@ -408,10 +403,7 @@ background: white;
     min-height: 20px;
     max-height: 38px;
 }
-
-
 .with-panel-left-cover .panel-overlay-top{
-  /*top:0!important;*/
   height: 56px;
   display: block;
   background: none;
@@ -423,16 +415,9 @@ background: white;
     -webkit-transition-duration: 0s;
     transition-duration: 0s;
 }
-.panel-overlay{
-  /*top: 56px;*/
-  /*margin-top: 56px;*/
-}
 .panel.panel-left.panel-cover{
-    /*top: 56px;*/
-    /*margin-top: 56px;*/
     box-shadow: 0 30px 20px rgba(0,0,0,.5)!important;
     bottom: 0px;
-    /*padding-bottom: 57px;*/
 }
 tr{
       text-align: left;
@@ -482,11 +467,10 @@ body{
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {
         background-position:left center;
-        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
-        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
-                                      /* offset horizontal: half of image width and text area width */
+        padding:75px 0px 75px 170px;
+        margin:-90px 0px 0px -198px;
     }
-}
+}*/
 /*INI EYE CSS*/
 /*
 span.eye {
