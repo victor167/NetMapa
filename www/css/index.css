@@ -1,4 +1,4 @@
-
+/*
 .pnl-item
 {
     border-bottom: 1px solid #DDD;
@@ -30,7 +30,6 @@
     left: 0;
     right: 0;
     z-index: 9;
-    /*bottom: 20px;*/
     top: 55px;
     display: none;
 }
@@ -87,6 +86,7 @@ width: 10%;
     height: 50px;
     float: left;
 }
+*/
 /****************************/
 /*CIRCLE*/
 #search .icon.circle{
