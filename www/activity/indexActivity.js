@@ -52,8 +52,8 @@ var indexActivity =
         indexActivity.markers.push(marker);
 
         // If you click on a marker, the marker's icon will be changed.
-        marker.on(plugin.google.maps.event.MARKER_CLICK, onMarkerClick);
-        marker.on(plugin.google.maps.event.INFO_CLICK, onMarkerClick);
+        marker.on(plugin.google.maps.event.MARKER_CLICK, indexActivity.onMarkerClick);
+        marker.on(plugin.google.maps.event.INFO_CLICK, indexActivity.onMarkerClick);
 
         if (indexActivity.markers.length === data.length) {
           callback(indexActivity.markers);
@@ -78,7 +78,7 @@ var indexActivity =
         //alert("Camera target has been changed");
       });
 
-      indexActivity.addMarkers(map,POINTS,function(){
+      indexActivity.addMarkers(map,PindexActivity.OINTS,function(){
         var bounds = [];
         for(var i=0; i<indexActivity.markers.length; i++){
           bounds.push(indexActivity.markers[i].getPosition());
