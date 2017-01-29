@@ -67,6 +67,26 @@
     <splash src="resources/ios/splash/Default~iphone.png" width="320" height="480"/>
   </platform>
 
+  <plugin name="cordova-plugin-camera-all-files" source="npm" spec="~2.1.20-dev"/>
+  <plugin name="cordova-plugin-file" source="npm" spec="4.3.0"/>
+  <plugin name="cordova-plugin-file-transfer" source="npm" spec="1.6.0"/>
+  <plugin name="cordova-plugin-console" source="npm" spec="~1.0.2"/>
+  <plugin name="cordova-plugin-device" source="npm" spec="~1.1.1"/>
+  <plugin name="cordova-plugin-device-motion" source="npm" spec="~1.2.0"/>
+  <plugin name="cordova-plugin-device-orientation" source="npm" spec="~1.0.2"/>
+  <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0"/>
+  <plugin name="cordova-plugin-sqlite" source="npm" spec="1.0.3"/>
+  <plugin name="cordova-plugin-network-information" source="npm" spec="~1.2.0"/>
+  <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
+  <gap:plugin name="onesignal-cordova-plugin" source="npm" />
+  <gap:plugin name="cordova-plugin-background-mode" source="npm"/>
+  
+  <platform name="android">
+    <plugin name="cordova-plugin-splashscreen" source="npm" spec="~3.2.1"/>
+    <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2"/>
+    <plugin spec="https://github.com/victor167/TaskDescriptionAndStatusBarColor.git" source="git" />
+  </platform>
+
     <platform name="android">
     <preference name="phonegap-version" value="cli-6.3.0" />
     <preference name="android-build-tool" value="gradle" />
@@ -87,7 +107,7 @@
 
 
   <preference name="loadUrlTimeoutValue" value="700000" />
-  
+
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
