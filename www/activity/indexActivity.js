@@ -79,7 +79,7 @@ var indexActivity =
         //alert("Camera target has been changed");
       });
 
-      indexActivity.addMarkers(map,PindexActivity.OINTS,function(){
+      indexActivity.addMarkers(map,indexActivity.POINTS,function(){
         var bounds = [];
         for(var i=0; i<indexActivity.markers.length; i++){
           bounds.push(indexActivity.markers[i].getPosition());
