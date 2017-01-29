@@ -78,9 +78,8 @@
   <plugin name="cordova-plugin-sqlite" source="npm" spec="1.0.3"/>
   <plugin name="cordova-plugin-network-information" source="npm" spec="~1.2.0"/>
   <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
-  <gap:plugin name="onesignal-cordova-plugin" source="npm" />
-  <gap:plugin name="cordova-plugin-background-mode" source="npm"/>
-  
+
+
   <platform name="android">
     <plugin name="cordova-plugin-splashscreen" source="npm" spec="~3.2.1"/>
     <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2"/>
