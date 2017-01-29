@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-/*
+
     .photo-info-ship{
           width: 100%;
     }
@@ -173,8 +173,9 @@ color: #3d3d3d!important;
     max-height: 250px;
     min-height: 100px;
     overflow: auto;
+    /*box-shadow: inset 0px 0px 20px #9d9d9d;*/
 }
-*/
+
 /*ESPERA*/
 .spinner {
   width: 40px;
@@ -304,54 +305,6 @@ color: #3d3d3d!important;
      }
   }
 
-
-/*
- @media screen and (orientation:portrait) { … }
- @media screen and (orientation:landscape) { … }
-*/
- /*
-transition: height 0.3s;
- */
- /*td{
-  border: 0;
- }
- .tdCat{
-      border-bottom: 1px solid #CCC;
- }*/
-/*
-thead:after {
-    content: "-";
-    display: block;
-    line-height: 1em;
-    color: transparent;
-    border-top: 1px solid #CCC;
-    width: 100%;
-}
-*/
-/*
-#moption{
-    background: white;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 4em;
-}
-#moption .moption-sub{
-    height: 4em;
-    width: 86px;
-    float: left;
-    text-align: center;
-    font-size: 0.9em;
-}
-#moption .moption-sub .moption-sub-img{ 
-    min-height: 20px;
-    max-height: 38px;
-}*/
-/*.preloader-indicator-overlay,.preloader-indicator-modal.preloader{
-  display: none!important;
-}*/
 .icon_global{
   font-size: 3em;
 }
@@ -492,44 +445,15 @@ thead tr th{
   border-bottom: 1px solid #CCC;
 }
 
-/*#nuevaInspeccion*/.list-block .item-link .item-inner{
+.list-block .item-link .item-inner{
   background: none;
  }
- /*#nuevaInspeccion*/ .item-select-icon{
+ .item-select-icon{
       position: absolute;
     right: 0;
     margin-right: 8px;
  }
- /*.back.link.icon-only, .iback.link.icon-only{
-    margin-left: 0px!important;
-    padding: 0;
-    padding-left: 14px;
- }*/
- /*.navbar .left{
-      z-index: 2;
-    position: relative;
- }*/
- /*
-  .navbar .left a.icon-only{
-    margin-left: 0px!important;
-    padding: 0;
-    padding-left: 12px;
-    position: absolute;
-    padding-right: 50px;
-    position: absolute;
-  }*//*
-.back.link.icon-only, .iback.link.icon-only {
-    margin-left: 0px!important;
-    padding: 0!important;
-    padding-left: 14px!important;
-    position: absolute;
-    padding-right: 45px!important;
-}*/
-/*
-.navbar .center{
-      margin: 0 50px!important;
-}*/
- .material-icons.md-18 { font-size: 18px; }
+.material-icons.md-18 { font-size: 18px; }
 }
 .material-icons.md-24 { font-size: 24px; }
 .material-icons.md-36 { font-size: 36px; }
@@ -551,24 +475,10 @@ textarea:focus, input:focus{
     padding-left: 20px;
     z-index: 999;
 }
-/**
-{ 
-user-select: none;
--moz-user-select: -moz-none;
--khtml-user-select: none;
--webkit-user-select: none;
-}*/
+
 body{
       background: white!important;
 }
-/*
-body
-{
-    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    margin:0px;
-    padding:0px;
-    padding-bottom: 39px;
-}*/
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {
         background-position:left center;
@@ -578,6 +488,7 @@ body
     }
 }
 /*INI EYE CSS*/
+/*
 span.eye {
     display: inline-block;
     width: 1em;
@@ -638,10 +549,11 @@ span.eye:before, span.eye:after {
     top: 50%;
     left: 50%;
     border-radius: 100%;
-}
+}*/
 /*END EYE CSS*/
 
 /*INI ICON HAMBURGER*/
+/*
 .material-design-hamburger button {
   display: block;
   border: none;
@@ -846,4 +758,5 @@ span.eye:before, span.eye:after {
   100% {
   }
 }
+*/
 /*END ICON HAMBURGER*/
