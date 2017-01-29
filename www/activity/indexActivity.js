@@ -30,8 +30,9 @@ var indexActivity =
 {
     ini: function(){
         div = document.getElementById("map_canvas3");
-            map = plugin.google.maps.Map.getMap(div);
-            map.one(plugin.google.maps.event.MAP_READY, function() {
+        map = plugin.google.maps.Map.getMap(div);
+        map.one(plugin.google.maps.event.MAP_READY, function() {
+            alert("map ready");
             indexActivity.map_ready();
         });
     },

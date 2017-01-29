@@ -91,6 +91,7 @@
     <param name="ios-package" value="CDVWKWebViewEngine" />
   </feature>
   <plugin name="cordova-plugin-wkwebview-engine" spec="~1.1.0" />
+
   <plugin name="cordova-plugin-googlemaps" spec="https://github.com/victor167/cordova-plugin-googlemaps-master">
     <variable name="API_KEY_FOR_ANDROID" value="AIzaSyCuqkgpLObHb_kwkkOJXqoTpZXceThYsog" />
     <variable name="API_KEY_FOR_IOS" value="AIzaSyCuqkgpLObHb_kwkkOJXqoTpZXceThYsog" />
@@ -116,6 +117,8 @@
     <preference name="SplashScreenBackgroundColor" value="#ffffff" />
     <preference name="android-windowSoftInputMode" value="stateHidden" />
   </platform>
+  <preference name="AndroidPersistentFileLocation" value="Internal" />
+  <preference name="iosPersistentFileLocation" value="Library" />
 
   <preference name="loadUrlTimeoutValue" value="700000" />
 
