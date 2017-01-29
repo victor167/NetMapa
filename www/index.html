@@ -4,8 +4,6 @@
         <meta charset="utf-8">
         <meta name="theme-color" content="#2196f3">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' gap:; script-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; object-src *; style-src 'self' data: 'unsafe-inline' *; img-src 'self' data:; media-src 'self' data:; font-src 'self' data:; connect-src *">
-        
         <meta name="format-detection" content="telephone=no" />
         <title>AIS Tracking Developer</title>
         <link rel="shortcut icon" href="icon.png">
@@ -137,17 +135,7 @@
             </div>
         </div>
         
-        <section class="demo">
-            <div class="map" id="map_canvas3"></div>
-        </section>
-        <script>
-            div = document.getElementById("map_canvas3");
-            map = plugin.google.maps.Map.getMap(div);
-            map.one(plugin.google.maps.event.MAP_READY, function() {
-                console.re.log("map ready");
-                //indexActivity.map_ready();
-            });
-        </script>
+
         <div id="leyenda-picker-modal-action" class="picker-modal">
             <div class="toolbar">
                 <div class="toolbar-inner">

@@ -28,7 +28,7 @@ var div;
 
 var indexActivity = 
 {
-    ini: function(){
+    /*ini: function(){
         div = document.getElementById("map_canvas3");
         map = plugin.google.maps.Map.getMap(div);
         map.one(plugin.google.maps.event.MAP_READY, function() {
@@ -76,18 +76,18 @@ var indexActivity =
         //alert("Camera target has been changed");
       });
 
-      /*indexActivity.addMarkers(map,indexActivity.POINTS,function(){
+      indexActivity.addMarkers(map,indexActivity.POINTS,function(){
         var bounds = [];
         for(var i=0; i<indexActivity.markers.length; i++){
           bounds.push(indexActivity.markers[i].getPosition());
         }
         map.moveCamera({target:bounds});
-      });*/
+      });
 
-    },
+    },*/
 
 
-    /*ini: function() {
+    ini: function() {
         
         $$("body").on("click","#btnSearch",function(){
             $$("#search .search-icon").html('');
@@ -250,7 +250,7 @@ var indexActivity =
 
         load_map = true;
         Main.appendScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDqqseQsCvkJfCpy6gswmpUY4IBhCCrtZU&callback=indexActivity.initMap&libraries=geometry");
-    },*/
+    },
     ships:[],
     rad: function (x) {
         return x * Math.PI / 180;
