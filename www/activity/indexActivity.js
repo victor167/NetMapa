@@ -21,10 +21,73 @@ var select_marker;
 var load_map = false;
 
 var id_company=2;
+/*********************************************/
+
+var map;
+var div;
 
 var indexActivity = 
 {
-    ini: function() {
+    ini: function(){
+        div = document.getElementById("map_canvas3");
+            map = plugin.google.maps.Map.getMap(div);
+            map.one(plugin.google.maps.event.MAP_READY, function() {
+            indexActivity.map_ready();
+        });
+    },
+    POINTS : 
+    [
+      {
+        position: {lat:-11.987576666667, lng: -77.159166666667},
+        title: "MAR PACIFICO",
+      },
+      {
+        position: {lat:-4.5693666666667, lng: -81.292045},
+        title: "VALI",
+      }
+    ],
+    markers: [],
+    onMarkerAdded: function(marker) 
+    {
+        indexActivity.markers.push(marker);
+
+        // If you click on a marker, the marker's icon will be changed.
+        marker.on(plugin.google.maps.event.MARKER_CLICK, onMarkerClick);
+        marker.on(plugin.google.maps.event.INFO_CLICK, onMarkerClick);
+
+        if (indexActivity.markers.length === data.length) {
+          callback(indexActivity.markers);
+        }
+    },
+    addMarkers: function (map, data, callback) 
+    {
+      data.forEach(function(markerOptions) {
+        map.addMarker(markerOptions, indexActivity.onMarkerAdded);
+      });
+    },
+    onMarkerClick: function ()
+    {
+      alert("onMarkerClick");
+    },
+    map_ready: function ()
+    {
+      map.moveCamera({
+        target: {lat: -13.80997, lng: -77.91021},
+        zoom: 5
+      }, function() {
+        //alert("Camera target has been changed");
+      });
+
+      indexActivity.addMarkers(map,POINTS,function(){
+        var bounds = [];
+        for(var i=0; i<indexActivity.markers.length; i++){
+          bounds.push(indexActivity.markers[i].getPosition());
+        }
+        map.moveCamera({target:bounds});
+      });
+
+    },
+    /*ini: function() {
         
         $$("body").on("click","#btnSearch",function(){
             $$("#search .search-icon").html('');
@@ -185,13 +248,9 @@ var indexActivity =
 
         });
 
-        /*
-
-        */
-
         load_map = true;
         Main.appendScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDqqseQsCvkJfCpy6gswmpUY4IBhCCrtZU&callback=indexActivity.initMap&libraries=geometry");
-    },
+    },*/
     ships:[],
     rad: function (x) {
         return x * Math.PI / 180;

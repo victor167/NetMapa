@@ -86,7 +86,18 @@
   </platform>
 
   <plugin spec="https://github.com/cordova-sms/cordova-sms-plugin.git" source="git" />
-    
+  
+  <feature name="CDVWKWebViewEngine">
+    <param name="ios-package" value="CDVWKWebViewEngine" />
+  </feature>
+  <plugin name="cordova-plugin-wkwebview-engine" spec="~1.1.0" />
+  <plugin name="cordova-plugin-googlemaps" spec="https://github.com/victor167/cordova-plugin-googlemaps-master">
+    <variable name="API_KEY_FOR_ANDROID" value="AIzaSyCuqkgpLObHb_kwkkOJXqoTpZXceThYsog" />
+    <variable name="API_KEY_FOR_IOS" value="AIzaSyCuqkgpLObHb_kwkkOJXqoTpZXceThYsog" />
+    <variable name="NSLOCATIONWHENINUSEUSAGEDESCRIPTION" value="Show your location on the map" />
+    <variable name="NSLOCATIONALWAYSUSAGEDESCRIPTION" value="Trace your location on the map" />
+  </plugin>
+
   <!--PREFERENCIAS-->
   <platform name="android">
     <preference name="phonegap-version" value="cli-6.3.0" />
