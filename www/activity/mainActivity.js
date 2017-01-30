@@ -883,6 +883,9 @@ var Main                    =   {
                          {
                              //console.log("BACK");
                              mainView.router.back({'animatePages':false});
+
+                            $$(".views").show();
+                            map.setVisible(false);
                          }
                          countHistory--;
                      };
@@ -891,6 +894,8 @@ var Main                    =   {
                  }
                  else
                  {
+                    $$(".views").show();
+                    map.setVisible(false);
                      //console.log("VOLVIENDO AL LOGIN[2]");
                      mainView.router.load({
                          'url':'layout/login.html',
