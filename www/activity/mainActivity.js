@@ -74,13 +74,13 @@ var app = {
                 console.re.log("SHIP");
                 console.re.log(ships);
                 $$.each(ships, function( index, ship ) {
-                    points[index] = new Object();
-
+                    points[i] = new Object();
+                    console.re.log("ok " + index);
                     if(typeof ship.shipname !== "undefined" && typeof ship.lat !== "undefined" && typeof ship.lon !== "undefined"){
-                        points[index].title = ship.shipname;
-                        points[index].position = new Object();
-                        points[index].position.lat = ship.lat;
-                        points[index].position.lng = ship.lon;
+                        points[i].title = ship.shipname;
+                        points[i].position = new Object();
+                        points[i].position.lat = ship.lat;
+                        points[i].position.lng = ship.lon;
                     }
                     if(i==index)
                     {
