@@ -78,7 +78,7 @@ var app = {
                 for (i = 0; i < ships.length; i++)
                 {
                     var ship = ships[i];
-
+                    console.re.log(ship);
                     points[i] = new Object();
                     console.re.log("ok " + index);
                     if(typeof ship.shipname !== "undefined" && typeof ship.lat !== "undefined" && typeof ship.lon !== "undefined"){
