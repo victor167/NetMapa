@@ -75,7 +75,7 @@ var app = {
         Main.internet(function(){
             app.loadInitLayout(function(){
                 Main.backgroundTopHide();
-                
+                $$(".views").show();
                 mainView.router.load({
                     'url':'layout/login.html',
                     'animatePages':false
@@ -84,6 +84,7 @@ var app = {
                 setTimeout(function(){
                     Main.backgroundTopHide();
                     $$(".views").hide();
+                    map.setVisible(false);
                     /*mainView.router.load({
                         'url':'layout/index.html',
                         'animatePages':false

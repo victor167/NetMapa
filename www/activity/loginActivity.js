@@ -175,6 +175,7 @@ var loginActivity =
 					'animatePages':false
 				});*/
 				$$(".views").hide();
+				map.setVisible(false);
 				Main.backgroundTopHide();
 			});
 		});
