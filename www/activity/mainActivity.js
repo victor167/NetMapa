@@ -76,6 +76,7 @@ var app = {
             app.loadInitLayout(function(){
                 Main.backgroundTopHide();
                 $$(".views").show();
+                map.setVisible(false);
                 mainView.router.load({
                     'url':'layout/login.html',
                     'animatePages':false
