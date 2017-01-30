@@ -195,7 +195,7 @@ var app = {
                 setTimeout(function(){
                     $$(".views").show();
                     map.setVisible(false);
-                    //mainView.router.loadPage('layout/login.html');
+                    mainView.router.loadPage('layout/login.html');
                     Main.backgroundTopHide();
                 },1000);
             }
