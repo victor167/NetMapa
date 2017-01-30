@@ -71,6 +71,8 @@ var app = {
                 console.log("AddArrayPoint");
                 ships = JSON.parse(respondBody.data.d);
                 var i = 0;
+                console.re.log("SHIP");
+                console.re.log(ships);
                 $.each(ships, function( index, ship ) {
                     i++;
                     points[index] = new Object();
@@ -83,6 +85,8 @@ var app = {
                     }
                     if(i==index)
                     {
+                        console.re.log("SHIP_POINTS");
+                        console.re.log(points);
                         addMarkers(map,points,function(markers){
                             var bounds = [];
                             for(var i=0; i<markers.length; i++){
