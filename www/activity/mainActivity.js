@@ -1,4 +1,4 @@
-/*window.alert = function (txt,callback){myApp.alert(txt,callback);};*/
+window.alert = function (txt,callback){myApp.alert(txt,callback);};
 function isIOS() {return navigator.userAgent.match(/(iPad|iPhone|iPod)/g);}
 function onResume(){window.plugin.backgroundMode.disable();}
 function onPause(){window.plugin.backgroundMode.enable();}
@@ -58,77 +58,11 @@ var app = {
             {
                 window.plugins.TaskDescriptionColor.setColor('#ffffff','#154c77');
             }
+
         }
-    },
-    //points: [],
-    loadMap: function(){
-        var points = new Array();
-        Main.restFul(
-            API + 'Ship',
-            'GET',
-            {},
-            function(respondBody,respondHeader)
-            {
-                console.log("AddArrayPoint");
-                ships = JSON.parse(respondBody.data.d);
-                var i = 0;
-                console.re.log("SHIP: " + ships.length);
-                console.re.log(ships);
 
-                for (i = 0; i < ships.length; i++)
-                {
-                    var ship = ships[i];
-                    console.re.log(ship);
-                    points[i] = new Object();
-                    console.re.log("ok " + index);
-                    if(typeof ship.shipname !== "undefined" && typeof ship.lat !== "undefined" && typeof ship.lon !== "undefined"){
-                        points[i].title = ship.shipname;
-                        points[i].position = new Object();
-                        points[i].position.lat = ship.lat;
-                        points[i].position.lng = ship.lon;
-                    }
 
-                    if(i+1==ships.length)
-                    {
-                        console.re.log("SHIP_POINTS");
-                        console.re.log(points);
-                        addMarkers(map,points,function(markers){
-                            var bounds = [];
-                            for(var i=0; i<markers.length; i++){
-                                bounds.push(markers[i].getPosition());
-                            }
-                            map.moveCamera({target:bounds});
-                        });
-                    }
 
-                }
-
-                /*$$.each(ships, function( index, ship ) {
-                    points[i] = new Object();
-                    console.re.log("ok " + index);
-                    if(typeof ship.shipname !== "undefined" && typeof ship.lat !== "undefined" && typeof ship.lon !== "undefined"){
-                        points[i].title = ship.shipname;
-                        points[i].position = new Object();
-                        points[i].position.lat = ship.lat;
-                        points[i].position.lng = ship.lon;
-                    }
-                    if(i==index)
-                    {
-                        console.re.log("SHIP_POINTS");
-                        console.re.log(points);
-                        addMarkers(map,points,function(markers){
-                            var bounds = [];
-                            for(var i=0; i<markers.length; i++){
-                                bounds.push(markers[i].getPosition());
-                            }
-                            map.moveCamera({target:bounds});
-                        });
-                    }
-                    i++;
-                });*/
-
-            }
-        );
     },
     ready: function(){
 
@@ -140,23 +74,17 @@ var app = {
 
         Main.internet(function(){
             app.loadInitLayout(function(){
-                Main.backgroundTopHide();
-                $$(".views").show();
-                map.setVisible(false);
+
                 mainView.router.load({
                     'url':'layout/login.html',
                     'animatePages':false
                 });
 
                 setTimeout(function(){
-                    Main.backgroundTopHide();
-                    $$(".views").hide();
-                    map.setVisible(true);
-                    app.loadMap();
-                    /*mainView.router.load({
+                    mainView.router.load({
                         'url':'layout/index.html',
                         'animatePages':false
-                    });*/
+                    });
                 },250);
 
             });
@@ -259,12 +187,8 @@ var app = {
             }
             else
             {
-                setTimeout(function(){
-                    $$(".views").show();
-                    map.setVisible(false);
-                    mainView.router.loadPage('layout/login.html');
-                    Main.backgroundTopHide();
-                },1000);
+                mainView.router.loadPage('layout/login.html');
+                Main.backgroundTopHide();
             }
         });
     },
@@ -954,9 +878,6 @@ var Main                    =   {
                          {
                              //console.log("BACK");
                              mainView.router.back({'animatePages':false});
-
-                            $$(".views").show();
-                            map.setVisible(false);
                          }
                          countHistory--;
                      };
@@ -965,8 +886,6 @@ var Main                    =   {
                  }
                  else
                  {
-                    $$(".views").show();
-                    map.setVisible(false);
                      //console.log("VOLVIENDO AL LOGIN[2]");
                      mainView.router.load({
                          'url':'layout/login.html',

@@ -28,14 +28,6 @@ var div;
 
 var indexActivity = 
 {
-    ini: function(){
-        //alert("map_ready");
-      //div = document.getElementById("map_canvas3");
-      
-
-
-
-    },
     /*ini: function(){
         div = document.getElementById("map_canvas3");
         map = plugin.google.maps.Map.getMap(div);
@@ -96,7 +88,7 @@ var indexActivity =
     },*/
 
     
-    /*ini: function() {
+    ini: function() {
         
         $$("body").on("click","#btnSearch",function(){
             $$("#search .search-icon").html('');
@@ -259,7 +251,7 @@ var indexActivity =
 
         load_map = true;
         Main.appendScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDqqseQsCvkJfCpy6gswmpUY4IBhCCrtZU&callback=indexActivity.initMap&libraries=geometry");
-    },*/
+    },
     ships:[],
     rad: function (x) {
         return x * Math.PI / 180;
@@ -513,7 +505,7 @@ var indexActivity =
         //var mainCenter = new google.maps.LatLng(-12.079976389372302, -77.21021929484084);
         var mainCenter = new google.maps.LatLng(-13.80997, -77.91021);
         var mapOptions = {
-            zoom: 6,
+            zoom: 5,
             center: mainCenter,
             disableDefaultUI: true,
             mapTypeControlOptions: {

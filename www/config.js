@@ -9,7 +9,7 @@ var AWS_SecretAccessKey 	=	'Nk+p/lvzOekpOxUnekm9tZDz9LgEmOKBObo1JYS5';
 var AWS_Region 				=	'';
 var AWS_BucketName 			=	'netaistracking';
 //////////////////////////////////////////////////////////////////////////////
-var branch					=	'production';
+var branch					=	'developer';
 //////////////////////////////////////////////////////////////////////////////
 if(branch == 'production')
 {

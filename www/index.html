@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-        <script>
+        <meta charset="utf-8">
+        <meta name="theme-color" content="#2196f3">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+        <meta name="format-detection" content="telephone=no" />
+        <title>AIS Tracking Developer</title>
+        <link rel="shortcut icon" href="icon.png">
+				<script>
             function addcss(css){
                 var head = document.getElementsByTagName('head')[0];
                 var s = document.createElement('style');
@@ -18,18 +22,24 @@
         </script>
         <script type="text/javascript" src="version.js"></script>
         <script type="text/javascript" src="config.js"></script>
-
+        <meta http-equiv="Content-Security-Policy" content="" />
         <link rel="stylesheet" type="text/css" href="css/framework7.material.min.css" />
         <link rel="stylesheet" type="text/css" href="css/framework7.material.colors.min.css" />
         <link rel="stylesheet" type="text/css" href="css/leaflet.css">
         <link rel="stylesheet" type="text/css" href="css/login.css" />
         <link rel="stylesheet" type="text/css" href="css/main.css" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-                <link rel="stylesheet" type="text/css" href="css/font/materialFont.css">
-        <link rel="stylesheet" type="text/css" href="css/common.css" />
-        <script type="text/javascript" src="js/loader.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/font/materialFont.css">
+        <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqqseQsCvkJfCpy6gswmpUY4IBhCCrtZU&callback=indexActivity.initMap&libraries=geometry" async defer></script>-->
     </head>
     <body>
+
+        <div id="backgroundLogo">
+            <div class="logo">AIS Tracking Developer</div>
+            <img src="resources/img/tramarsa.png">
+        </div>
+
+        <img id="img" src="" style="display:none;width:100%;">
 
         <div class="statusbar-overlay"></div>
         <div class="panel-overlay"></div>
@@ -99,8 +109,6 @@
                 </div>
             </div>
         </div>
-
-
         <div id="version" style=" position: absolute; "></div>
         <div id="BackgroundTop">
             <div class="title"></div>
@@ -126,10 +134,66 @@
                 <div class="pages navbar-fixed"></div>
             </div>
         </div>
+        
+        <!--<section class="demo">
+            <div class="map" id="map_canvas3"></div>
+        </section>-->
 
-        <div class="map" id="map_canvas3"></div>
-
-       <script type="text/javascript">
+        <div id="leyenda-picker-modal-action" class="picker-modal">
+            <div class="toolbar">
+                <div class="toolbar-inner">
+                    <div class="left">
+                        <a href="#" class="link close-picker"></a>
+                    </div>
+                    <div class="right">
+                        <a href="#" class="link close-picker">Cerrar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="picker-modal-inner">
+                <div class="content-block list-block">
+                    <ul>
+                        <li>
+                            <a href="#" class="item-link">
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <i class="material-icons" style="color:green;">&#xE877;</i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title">Verificado, si cumple</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="item-link">
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <i class="material-icons" style="color:green;">&#xE876;</i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title">Verificado, no cumple</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="item-link">
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <i class="material-icons" style="color:red;">&#xE14C;</i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title">No aplica</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
             window.onerror = function(msg, url, line, col, error) {
                 alert("error");
                 var extra = !col ? '' : '\ncolumn: ' + col;
@@ -162,6 +226,23 @@
         <script type="text/javascript" src="js/html5sql.js"></script>
         <script type="text/javascript" src="activity/mainActivity.js"></script>
 
+
+        <script type="text/javascript">
+            window.onerror = function(msg, url, line, col, error) {
+                alert("error");
+                var extra = !col ? '' : '\ncolumn: ' + col;
+                extra += !error ? '' : '\nerror: ' + error;
+
+                // You can view the information in an alert to see things working like this:
+                alert("Error: " + msg + "\nurl: " + url + "\nline: " + line + extra);
+            };
+            function isMobile()
+            {
+                var isCordovaApp = !!window.cordova;
+                return isCordovaApp;
+            }
+        </script>
+
         <script type="text/javascript">
             var IS_READY=false;
             var PROJECT_INITIALIZE = false;
@@ -174,6 +255,7 @@
                         console.re.log(device);
                         clearInterval(PROJECT_INTERVAL);
                         system.ini();
+                        //alert("system.ini");
                     }
                 },100);
             });
@@ -199,6 +281,8 @@
                 PROJECT_INITIALIZE = true;
             }, false);
         </script>
-    </body>
 
+
+
+    </body>
 </html>
