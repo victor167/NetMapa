@@ -62,7 +62,7 @@ var app = {
     },
     //points: [],
     loadMap: function(){
-        var points;
+        var points = new Array();
         Main.restFul(
             API + 'Ship',
             'GET',
