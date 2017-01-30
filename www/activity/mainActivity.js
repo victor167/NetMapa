@@ -192,11 +192,12 @@ var app = {
             }
             else
             {
-                
-                $$(".views").show();
-                map.setVisible(false);
-                //mainView.router.loadPage('layout/login.html');
-                Main.backgroundTopHide();
+                setTimeout(function(){
+                    $$(".views").show();
+                    map.setVisible(false);
+                    //mainView.router.loadPage('layout/login.html');
+                    Main.backgroundTopHide();
+                },1000);
             }
         });
     },
