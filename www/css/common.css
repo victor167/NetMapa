@@ -1,10 +1,11 @@
 .map {
     position: absolute;
-    top: 56px;
+    top: 0px;
     right: 0;
     left: 0;
     bottom: 0;
     border: 2px solid #03A9F4;
+    z-index: 5001;
 }
 /*
 html {
