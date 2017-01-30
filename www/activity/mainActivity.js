@@ -194,7 +194,7 @@ var app = {
             {
                 $$(".views").show();
                 map.setVisible(false);
-                mainView.router.loadPage('layout/login.html');
+                //mainView.router.loadPage('layout/login.html');
                 Main.backgroundTopHide();
             }
         });
