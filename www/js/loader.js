@@ -9,7 +9,7 @@ document.addEventListener("deviceready", function() {
 	    map_ready();
 	});
 }, false);
- 
+ /*
 var POINTS = 
 [
   {
@@ -20,7 +20,7 @@ var POINTS =
     position: {lat:-4.5693666666667, lng: -81.292045},
     title: "VALI",
   }
-];
+];*/
 
 function addMarkers(map, data, callback) {
   var markers = [];
@@ -53,12 +53,12 @@ function map_ready(){
     //alert("Camera target has been changed");
   });
 
-  addMarkers(map,POINTS,function(markers){
+  /*addMarkers(map,POINTS,function(markers){
     var bounds = [];
     for(var i=0; i<markers.length; i++){
       bounds.push(markers[i].getPosition());
     }
     map.moveCamera({target:bounds});
-  });
+  });*/
 
 }

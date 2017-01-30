@@ -176,6 +176,7 @@ var loginActivity =
 				});*/
 				$$(".views").hide();
 				map.setVisible(true);
+				app.loadMap();
 				Main.backgroundTopHide();
 			});
 		});

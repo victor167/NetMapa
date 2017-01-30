@@ -58,11 +58,43 @@ var app = {
             {
                 window.plugins.TaskDescriptionColor.setColor('#ffffff','#154c77');
             }
-
         }
+    },
+    //points: [],
+    loadMap: function(){
+        Main.restFul(
+            API + 'Ship',
+            'GET',
+            {},
+            function(respondBody,respondHeader)
+            {
+                console.log("AddArrayPoint");
+                ships = JSON.parse(respondBody.data.d);
+                var i = 0;
+                $.each(ships, function( index, ship ) {
+                    i++;
+                    points[index] = new Object();
 
+                    if(typeof ship.shipname !== "undefined" && typeof ship.lat !== "undefined" && typeof ship.lon !== "undefined"){
+                        points[index].title = ship.shipname;
+                        points[index].position = new Object();
+                        points[index].position.lat = ship.lat;
+                        points[index].position.lng = ship.lon;
+                    }
+                    if(i==index)
+                    {
+                        addMarkers(map,points,function(markers){
+                            var bounds = [];
+                            for(var i=0; i<markers.length; i++){
+                                bounds.push(markers[i].getPosition());
+                            }
+                            map.moveCamera({target:bounds});
+                        });
+                    }
+                });
 
-
+            }
+        );
     },
     ready: function(){
 
@@ -86,6 +118,7 @@ var app = {
                     Main.backgroundTopHide();
                     $$(".views").hide();
                     map.setVisible(true);
+                    app.loadMap();
                     /*mainView.router.load({
                         'url':'layout/index.html',
                         'animatePages':false
