@@ -84,7 +84,7 @@ var app = {
                 setTimeout(function(){
                     Main.backgroundTopHide();
                     $$(".views").hide();
-                    map.setVisible(false);
+                    map.setVisible(true);
                     /*mainView.router.load({
                         'url':'layout/index.html',
                         'animatePages':false
