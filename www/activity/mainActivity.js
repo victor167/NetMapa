@@ -62,6 +62,7 @@ var app = {
     },
     //points: [],
     loadMap: function(){
+        var points;
         Main.restFul(
             API + 'Ship',
             'GET',
@@ -73,7 +74,36 @@ var app = {
                 var i = 0;
                 console.re.log("SHIP");
                 console.re.log(ships);
-                $$.each(ships, function( index, ship ) {
+
+                for (i = 0; i < ships.length; i++)
+                {
+                    var ship = ships[i];
+
+                    points[i] = new Object();
+                    console.re.log("ok " + index);
+                    if(typeof ship.shipname !== "undefined" && typeof ship.lat !== "undefined" && typeof ship.lon !== "undefined"){
+                        points[i].title = ship.shipname;
+                        points[i].position = new Object();
+                        points[i].position.lat = ship.lat;
+                        points[i].position.lng = ship.lon;
+                    }
+
+                    if(i+1==ships.length)
+                    {
+                        console.re.log("SHIP_POINTS");
+                        console.re.log(points);
+                        addMarkers(map,points,function(markers){
+                            var bounds = [];
+                            for(var i=0; i<markers.length; i++){
+                                bounds.push(markers[i].getPosition());
+                            }
+                            map.moveCamera({target:bounds});
+                        });
+                    }
+
+                }
+
+                /*$$.each(ships, function( index, ship ) {
                     points[i] = new Object();
                     console.re.log("ok " + index);
                     if(typeof ship.shipname !== "undefined" && typeof ship.lat !== "undefined" && typeof ship.lon !== "undefined"){
@@ -95,7 +125,7 @@ var app = {
                         });
                     }
                     i++;
-                });
+                });*/
 
             }
         );
