@@ -1,9 +1,13 @@
+
+var map;
+
 document.addEventListener("deviceready", function() {
 	div = $$("#map_canvas3")[0];
 	map = plugin.google.maps.Map.getMap(div);
 	map.one(plugin.google.maps.event.MAP_READY, function() {
 	    alert("map_ready");
 	    map_ready();
+      map.setVisible(false);
 	});
 }, false);
  
