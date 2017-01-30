@@ -72,7 +72,7 @@ var app = {
                 console.log("AddArrayPoint");
                 ships = JSON.parse(respondBody.data.d);
                 var i = 0;
-                console.re.log("SHIP");
+                console.re.log("SHIP: " + ships.length);
                 console.re.log(ships);
 
                 for (i = 0; i < ships.length; i++)
