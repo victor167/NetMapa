@@ -192,7 +192,7 @@ var app = {
             }
             else
             {
-                alert("XD");
+                
                 $$(".views").show();
                 map.setVisible(false);
                 //mainView.router.loadPage('layout/login.html');
