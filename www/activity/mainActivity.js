@@ -74,7 +74,6 @@ var app = {
                 console.re.log("SHIP");
                 console.re.log(ships);
                 $.each(ships, function( index, ship ) {
-                    i++;
                     points[index] = new Object();
 
                     if(typeof ship.shipname !== "undefined" && typeof ship.lat !== "undefined" && typeof ship.lon !== "undefined"){
@@ -95,6 +94,7 @@ var app = {
                             map.moveCamera({target:bounds});
                         });
                     }
+                    i++;
                 });
 
             }
