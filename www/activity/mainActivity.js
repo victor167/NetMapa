@@ -73,7 +73,7 @@ var app = {
                 var i = 0;
                 console.re.log("SHIP");
                 console.re.log(ships);
-                $.each(ships, function( index, ship ) {
+                $$.each(ships, function( index, ship ) {
                     points[index] = new Object();
 
                     if(typeof ship.shipname !== "undefined" && typeof ship.lat !== "undefined" && typeof ship.lon !== "undefined"){
