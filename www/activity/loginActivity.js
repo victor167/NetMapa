@@ -169,11 +169,12 @@ var loginActivity =
 		$$("#password").val("");
 		system.sessionLoad(function(){
 			app.loadInitLayout(function(){
-				//console.log("CARGANDO PLANTILLA INSPECTOR");
-				mainView.router.load({
+				alert("OK PANEL");
+				/*mainView.router.load({
 					'url':'layout/index.html',
 					'animatePages':false
-				});
+				});*/
+				$$(".views").hide();
 				Main.backgroundTopHide();
 			});
 		});
