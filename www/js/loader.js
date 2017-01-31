@@ -41,7 +41,7 @@ function addMarkers(map, data, callback) {
 }
 
 function onMarkerClick(){
-  alert("onMarkerClick");
+  //alert("onMarkerClick");
 }
 
 function map_ready(){
