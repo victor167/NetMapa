@@ -640,10 +640,7 @@ var indexActivity =
         setTimeout(indexActivity.zoomToFit, 2000);
     },
     RefreshBoat: function() {
-        indexActivity.removeRectangle();
-        indexActivity.removeLines();
-        indexActivity.clearOverlays();
-        var str_Id_ship = 1;// $('#cboCompany').val();
+
 
 
         Main.restFul(
@@ -652,6 +649,10 @@ var indexActivity =
             {},
             function(respondBody,respondHeader)
             {
+                indexActivity.removeRectangle();
+                indexActivity.removeLines();
+                indexActivity.clearOverlays();
+                
                 console.log("AddArrayPoint");
                 indexActivity.ships = JSON.parse(respondBody.data.d);
                 indexActivity.AddArrayPoint();
