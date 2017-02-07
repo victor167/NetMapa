@@ -1,19 +1,13 @@
-<?xml version='1.0' encoding='utf-8'?>
-<widget id="com.aistraking.aistrackingdev" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id= "com.aistraking.aistrackingdev" version="1.0.0">
+  <!-- NetInspeccion (RJ999353BH.com.aistraking.inspection) -->
+<!--<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.aistraking.res" version="1.0.0">-->
+
   <name>AIS Tracking Developer</name>
-  <description>AIS Tracking</description>
+  <description>AIS Tracking Developer</description>
   <author email="vrecinesm@gmail.com">Victor Recines</author>
   <content src="index.html"/>
-    <plugin name="cordova-plugin-whitelist" spec="1" />
-    <access origin="*" subdomains="true" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
-    <allow-intent href="tel:*" />
-    <allow-intent href="sms:*" />
-    <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />
 
-    <platform name="android">
+<platform name="android">
     <allow-intent href="market:*"/>
     <icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
     <icon src="resources/android/icon/drawable-mdpi-icon.png" density="mdpi"/>
@@ -67,6 +61,10 @@
     <splash src="resources/ios/splash/Default~iphone.png" width="320" height="480"/>
   </platform>
 
+  <feature name="Notification">
+    <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
+  </feature>
+
   <plugin name="cordova-plugin-camera-all-files" source="npm" spec="~2.1.20-dev"/>
   <plugin name="cordova-plugin-file" source="npm" spec="4.3.0"/>
   <plugin name="cordova-plugin-file-transfer" source="npm" spec="1.6.0"/>
@@ -78,14 +76,18 @@
   <plugin name="cordova-plugin-sqlite" source="npm" spec="1.0.3"/>
   <plugin name="cordova-plugin-network-information" source="npm" spec="~1.2.0"/>
   <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
-
-
+  <gap:plugin name="onesignal-cordova-plugin" source="npm" />
+  <gap:plugin name="cordova-plugin-background-mode" source="npm"/>
+  <!--PLUGIN-->
   <platform name="android">
     <plugin name="cordova-plugin-splashscreen" source="npm" spec="~3.2.1"/>
     <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2"/>
     <plugin spec="https://github.com/victor167/TaskDescriptionAndStatusBarColor.git" source="git" />
   </platform>
 
+  <plugin spec="https://github.com/cordova-sms/cordova-sms-plugin.git" source="git" />
+    
+  <!--PREFERENCIAS-->
   <platform name="android">
     <preference name="phonegap-version" value="cli-6.3.0" />
     <preference name="android-build-tool" value="gradle" />
@@ -104,30 +106,22 @@
     <preference name="android-windowSoftInputMode" value="stateHidden" />
   </platform>
 
-
   <preference name="loadUrlTimeoutValue" value="700000" />
 
-    <platform name="android">
-        <allow-intent href="market:*" />
-    </platform>
-    <platform name="ios">
-        <allow-intent href="itms:*" />
-        <allow-intent href="itms-apps:*" />
-    </platform>
-    <preference name="AndroidPersistentFileLocation" value="Internal" />
-    <preference name="iosPersistentFileLocation" value="Library" />
-    <feature name="CDVWKWebViewEngine">
-        <param name="ios-package" value="CDVWKWebViewEngine" />
-    </feature>
-    <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
-    <engine name="android" spec="latest" />
-    <engine name="ios" spec="latest" />
-    <plugin name="cordova-plugin-wkwebview-engine" spec="~1.1.0" />
-    <plugin name="cordova-plugin-console" spec="~1.0.4" />
-    <plugin name="cordova-plugin-googlemaps" spec="https://github.com/victor167/cordova-plugin-googlemaps-master">
-        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyCuqkgpLObHb_kwkkOJXqoTpZXceThYsog" />
-        <variable name="API_KEY_FOR_IOS" value="AIzaSyCuqkgpLObHb_kwkkOJXqoTpZXceThYsog" />
-        <variable name="NSLOCATIONWHENINUSEUSAGEDESCRIPTION" value="Show your location on the map" />
-        <variable name="NSLOCATIONALWAYSUSAGEDESCRIPTION" value="Trace your location on the map" />
-    </plugin>
+  <access origin="*"/>
+  <allow-intent href="http://*/*"/>
+  <allow-intent href="https://*/*"/>
+  <!--<allow-intent href="tel:*"/>
+  <allow-intent href="sms:*"/>
+  <allow-intent href="mailto:*"/>
+  <allow-intent href="geo:*"/>-->
+
+  <platform name="android">
+    <allow-intent href="market:*"/>
+  </platform>
+  <platform name="ios">
+    <allow-intent href="itms:*"/>
+    <allow-intent href="itms-apps:*"/>
+  </platform>
+
 </widget>

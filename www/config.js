@@ -31,4 +31,3 @@ else
 
 	addcss("#version{ background: #F44336; }");
 }
-
