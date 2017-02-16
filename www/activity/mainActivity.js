@@ -68,7 +68,7 @@ var app = {
 
         setTimeout(function(){
             $$("#backgroundLogo").hide();
-        },100);//6000
+        },6000);//6000
 
         Main.backgroundTopShow();
 

@@ -2,8 +2,8 @@
   <!-- NetInspeccion (RJ999353BH.com.aistraking.inspection) -->
 <!--<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.aistraking.res" version="1.0.0">-->
 
-  <name>AIS Tracking Developer</name>
-  <description>AIS Tracking Developer</description>
+  <name>AIS Tramarsa Developer</name>
+  <description>AIS Tramarsa Developer</description>
   <author email="vrecinesm@gmail.com">Victor Recines</author>
   <content src="index.html"/>
 

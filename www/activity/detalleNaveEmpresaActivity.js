@@ -234,7 +234,7 @@ var detalleNaveEmpresaActivity =
                     }
                     else if(indexAsoc=='tx_shipfile_name')
                     {
-                        htmlDataPhotoShip = '<div class="pnl-item"><img class="photo-info-ship" src="http://aistracking.com/Images/ship/' + data[indexAsoc] + '"></div>';
+                        htmlDataPhotoShip = '<div class="pnl-item"><img class="photo-info-ship" src="http://aistramarsa.com/Images/ship/' + data[indexAsoc] + '"></div>';
                     }
                     else
                     {
@@ -282,10 +282,10 @@ var detalleNaveEmpresaActivity =
                         {
                             countInfoCapitan++;
 
-                            var PictureName = "http://aistracking.com/Images/person/blank.jpg";
+                            var PictureName = "http://aistramarsa.com/Images/person/blank.jpg";
                             if(value.PictureName!="")
                             {
-                                PictureName = "http://aistracking.com" + (value.PictureName).replace("~","");
+                                PictureName = "http://aistramarsa.com" + (value.PictureName).replace("~","");
                             }
 
                             $$("#naveEmpresaCapitan .photo-info-person").attr("src",PictureName);
@@ -296,10 +296,10 @@ var detalleNaveEmpresaActivity =
                         }
                         else
                         {
-                            var PictureName = "http://aistracking.com/Images/person/blank.jpg";
+                            var PictureName = "http://aistramarsa.com/Images/person/blank.jpg";
                             if(value.PictureName!="" && value.PictureName!=null)
                             {
-                                PictureName = "http://aistracking.com" + (value.PictureName).replace("~","");
+                                PictureName = "http://aistramarsa.com" + (value.PictureName).replace("~","");
                             }
 
                             countInfoTripulacion++;

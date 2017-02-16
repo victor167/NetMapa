@@ -495,8 +495,7 @@ var indexActivity =
   }
 ];
  
-        var styledMap = new google.maps.StyledMapType(styles,
-            { name: 'Mar' });
+        var styledMap = new google.maps.StyledMapType(styles,{ name: 'Mar' });
 
         myInfoWindow = new google.maps.InfoWindow({
             content: ''
@@ -517,8 +516,8 @@ var indexActivity =
 
         map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-        map.mapTypes.set('map_style', styledMap);
-        map.setMapTypeId('map_style');
+        //map.mapTypes.set('map_style', styledMap);
+        //map.setMapTypeId('map_style');
 
         lineSymbol = {
             path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
