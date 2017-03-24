@@ -9,8 +9,8 @@ var AWS_SecretAccessKey 	=	'Nk+p/lvzOekpOxUnekm9tZDz9LgEmOKBObo1JYS5';
 var AWS_Region 				=	'';
 var AWS_BucketName 			=	'netaistracking';
 //////////////////////////////////////////////////////////////////////////////
-var AppName 				=	'NetInspection';
-var AppBranch					=	'production';
+var AppName 				=	'AISTracking';
+var AppBranch					=	'developer';
 //////////////////////////////////////////////////////////////////////////////
 if(AppBranch == 'production')
 {
