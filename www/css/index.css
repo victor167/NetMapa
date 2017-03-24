@@ -1,3 +1,10 @@
+#btnLabel:not(.check) .active{
+    display: none;
+}
+#btnLabel.check .inactive{
+    display: none;
+}
+
 .pnl-item
 {
     border-bottom: 1px solid #DDD;
@@ -16,12 +23,22 @@
 {
 	border-bottom: 6px solid #e1e1e1;
 }
-#btnSearch
+#btnLabel
 {
 	line-height: 44px;
 	width: 55px;
 	text-align: center;
 	padding-top: 12px;
+}
+#btnSearch
+{
+    line-height: 44px;
+    width: 55px;
+    text-align: center;
+    padding-top: 12px;
+}
+#btnSearch.show{
+    background: rgb(101, 176, 236);
 }
 #search{
 	padding: 10px;
@@ -34,7 +51,8 @@
     display: none;
 }
 #search.show{
-	display: block!important;
+    display: block!important;
+    background: rgba(97, 179, 245, 0.55);
 }
 #search .search.input{
 	width: 100%;
@@ -79,7 +97,7 @@
     z-index: 10;
 }
 #search.result-list{
-	bottom: 20px;
+	bottom: 0px;
 }
 #search .search-icon{
 width: 10%;

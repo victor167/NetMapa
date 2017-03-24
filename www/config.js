@@ -9,15 +9,16 @@ var AWS_SecretAccessKey 	=	'Nk+p/lvzOekpOxUnekm9tZDz9LgEmOKBObo1JYS5';
 var AWS_Region 				=	'';
 var AWS_BucketName 			=	'netaistracking';
 //////////////////////////////////////////////////////////////////////////////
-var branch					=	'production';
+var AppName 				=	'NetInspection';
+var AppBranch					=	'production';
 //////////////////////////////////////////////////////////////////////////////
-if(branch == 'production')
+if(AppBranch == 'production')
 {
 	API 	= 'http://app.aistracking.com/api/';
 	
 	addcss("#version{ background: #2196f3; }");
 }
-else if(branch == 'developer')
+else if(AppBranch == 'developer')
 {
 	API 	= 	'http://app.aistracking.net/api/';
 	VERSION +=	'-dev';
