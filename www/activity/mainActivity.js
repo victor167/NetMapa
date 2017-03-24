@@ -368,8 +368,6 @@ var app = {
         
     },
     llenarCountsCat: function(isEmpty){
-        console.re.log("app.saveCountCat");
-        console.re.log(app.saveCountCat);
         var classEmpty = "";
         if(typeof isEmpty!== "undefined" && isEmpty){
             classEmpty = ".empty";
@@ -599,12 +597,10 @@ var system                  =   {
     {
         $$("#version").html(VERSION);
         document.addEventListener("resume", function(){
-            //console.re.log("RESUME");
-            //console.re.log(device);
+
         }, false);
         document.addEventListener("pause", function(){
-            //console.re.log("PAUSE");
-            //console.re.log(device);
+
         }, false);
 
         this.dbLoad();
@@ -1041,7 +1037,7 @@ var Main                    =   {
                     var returning = {id:id,url:_url,type:_type,request:request,success:true,data:data};
                     if(isMobile())
                     {
-                        console.re.info(returning);
+                        //console.re.info(returning);
                     }
                     else
                     {
@@ -1124,13 +1120,11 @@ var Main                    =   {
     },
     loadActivity: function (activity)
     {
-        ////console.log("LOAD ACTIVITY");
-        ////console.log(activity);
+
         if(!this.inArray(activities,activity))
         {
             activities[activities.length]   =   activity;
-            console.re.log("INARRAY:" + activity);
-            console.re.log(window[activity]);
+
             window[activity].ini();
         }
         window[activity].load();

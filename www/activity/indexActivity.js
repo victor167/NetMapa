@@ -353,7 +353,7 @@ var indexActivity =
             }
         }
     },
-    addLabels: function(){
+    /*addLabels: function(){
 
         if(indexActivity.labelActive)
         {
@@ -379,7 +379,7 @@ var indexActivity =
         {
             indexActivity.clearLabels();
         }
-    },
+    },*/
     bindInfoWindow: function(marker, map, infowindow, html, id_ship) {
         google.maps.event.addListener(marker, 'click', function () {
             infowindow.setContent(html);
@@ -715,7 +715,11 @@ var indexActivity =
                 indexActivity.clearOverlays();
                 
                 console.log("AddArrayPoint");
-                indexActivity.ships = JSON.parse(respondBody.data.d);
+                if(respondBody.data.d!="null")
+                {
+                    indexActivity.ships = JSON.parse(respondBody.data.d);
+                }
+                
                 indexActivity.AddArrayPoint();
             }
         );
@@ -889,8 +893,8 @@ var indexActivity =
             }
         }
         catch (err) {
-            alert(err.message + ' Start:' + indexActivity.ships);
-            console.log("error", indexActivity.ships);
+            //alert(err.message + ' Start:' + indexActivity.ships);
+            console.log("error", err);
         }
     },
     load: function(){

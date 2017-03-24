@@ -226,6 +226,7 @@ var detalleNaveEmpresaActivity =
                 var htmlDataShipCompany = "";
                 var img_ship = "";
                 var htmlDataPhotoShip = '';
+                
                 Object.keys(data).map(function(indexAsoc, indexNum) {
                     var title = detalleNaveEmpresaActivity.indexTabletoTitle(indexAsoc,1);
                     if(title!="")
