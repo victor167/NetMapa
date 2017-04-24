@@ -868,16 +868,16 @@ var indexActivity =
                         }
                     }
                     
-                    var strInfoMessage = '<b>Nombre del barco:</b> ' + result[i].shipname + '<br>';
-                    strInfoMessage += '<b>Tipo de barco:</b> ' + result[i].shiptypeDesc + '<br>';
+                    var strInfoMessage = '<b>Nombre de nave:</b> ' + result[i].shipname + '<br>';
+                    strInfoMessage += '<b>Tipo de nave:</b> ' + result[i].shiptypeDesc + '<br>';
                     strInfoMessage += '<b>MMSI:</b> ' + result[i].mmsi + '<br>';
-                    strInfoMessage += '<b>IMO:</b> ' + result[i].imo + '<br>';
-                    strInfoMessage += '<b>Call Sign:</b> ' + result[i].callsign + '<br>';
-                    strInfoMessage += '<b>Lat:</b> ' + result[i].lat + ' <b>Lng:</b> ' + result[i].lon + '<br>';
-                    strInfoMessage += '<b>Status:</b> ' + result[i].NavigationStatus + '<br>';
-                    strInfoMessage += '<b>Speed:</b> ' + admill + " Kntos<br>";
-                    strInfoMessage += '<b>Draught:</b> ' + result[i].draught + ' mts.';
-
+                    //strInfoMessage += '<b>IMO:</b> ' + result[i].imo + '<br>';
+                    //strInfoMessage += '<b>Call Sign:</b> ' + result[i].callsign + '<br>';
+                    //strInfoMessage += '<b>Lat:</b> ' + result[i].lat + ' <b>Lng:</b> ' + result[i].lon + '<br>';
+                    //strInfoMessage += '<b>Status:</b> ' + result[i].NavigationStatus + '<br>';
+                    strInfoMessage += '<b>Velocidad:</b> ' + admill + " Kntos<br>";
+                    strInfoMessage += '<b>Destino:</b> ' + result[i].destination;
+                    //console.log("result X:",result);
                     indexActivity.bindInfoWindow(marker1, map, myInfoWindow, strInfoMessage, result[i].id_ship);
                     marker1.setMap(map);
                     markersArray.push(marker1);
