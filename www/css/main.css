@@ -16,6 +16,17 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+    .labels {
+    color: #616161;
+    background-color: white;
+    font-family: "Lucida Grande", "Arial", sans-serif;
+    font-size: 10px;
+    text-align: center;
+    white-space: nowrap;
+    margin-top: 8px!important;
+   }
+   
  /*.button.button-fill.color-green{
   background: #4caf50!important;
     color: #fff;

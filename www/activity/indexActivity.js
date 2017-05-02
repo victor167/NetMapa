@@ -187,6 +187,7 @@ var indexActivity =
                 animation: google.maps.Animation.DROP,
                 position: {lat: lati, lng: lon},
             });
+
             marker.setAnimation(google.maps.Animation.BOUNCE);
 
             setTimeout(function(){
@@ -353,7 +354,7 @@ var indexActivity =
             }
         }
     },
-    /*addLabels: function(){
+    addLabels: function(){
 
         if(indexActivity.labelActive)
         {
@@ -379,7 +380,7 @@ var indexActivity =
         {
             indexActivity.clearLabels();
         }
-    },*/
+    },
     bindInfoWindow: function(marker, map, infowindow, html, id_ship) {
         google.maps.event.addListener(marker, 'click', function () {
             infowindow.setContent(html);
@@ -422,7 +423,7 @@ var indexActivity =
     },
     initMap: function() {
         Main.appendScript("js/maplabel-compiled.js");
-
+        Main.appendScript("js/markerwithlabel.js");
         var styles = [
   {
     "featureType": "administrative",
@@ -600,7 +601,7 @@ var indexActivity =
         info += "<b>Destino:</b> " + path[1].toString()+ "<br><br>";
         $$("#floating-panel").html(info);
     },
-    square: function(vshape, vstrokeColor, vfillColor, vfillOpacity, vstrokeOpacity, vscale, lat1, lon1) {
+    square: function(vshape, vstrokeColor, vfillColor, vfillOpacity, vstrokeOpacity, vscale, lat1, lon1,shipname) {
         var shape = '';
         switch (vshape) {
             case 'square': shape = 'M -2,-2 2,-2 2,2 -2,2 z'; break;
@@ -647,6 +648,17 @@ var indexActivity =
         
         var myLatlng1 = { lat: lat1, lng: lon1 };
         if (vshape == 'cross') {
+            return (new MarkerWithLabel({
+                        position: myLatlng1,
+                        draggable: false,
+                        map: map,
+                        labelContent: shipname,
+                        labelAnchor: new google.maps.Point(22, 0),
+                        labelClass: "labels", // the CSS class for the label
+                        icon: vicon,
+                     }));
+
+            /*
             return (new google.maps.Marker({
                 position: myLatlng1,
                 map: map,
@@ -656,13 +668,25 @@ var indexActivity =
                     fontWeight: "bold"
                 }
             }));
+            */
         }
         else {
-            return (new google.maps.Marker({
+            return (new MarkerWithLabel({
+                position: myLatlng1,
+                draggable: false,
+                map: map,
+                labelContent: shipname,
+                labelAnchor: new google.maps.Point(22, 0),
+                labelClass: "labels", // the CSS class for the label
+                icon: vicon,
+                
+             }));
+
+            /*return (new google.maps.Marker({
                 position: myLatlng1,
                 map: map,
                 icon: vicon
-            }));
+            }));*/
         }
     },
     GetVal:function() {
@@ -729,14 +753,13 @@ var indexActivity =
     AddPoint:function(response) {
         try {
             var myLatlngA = { lat: -12.162208, lng: -76.986291 };
-            var markerA = new google.maps.Marker({
+            /*var markerA = new google.maps.Marker({
                 position: myLatlngA,
                 map: map,
                 icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=1|FF3417|FFFFFF'
-                /*icon: 'images/white-car.png'*/
             });
 
-            markerA.setMap(map);
+            markerA.setMap(map);*/
         }
         catch (err) {
             //alert(err.message);
@@ -797,10 +820,36 @@ var indexActivity =
                         vstrokeColor = '#FF0000';
                     }
 
+                    ///////////////////////////////////////////////////////DIBUJA EL MARCADOR
                     if (result[i].NavigationStatusShape == 'point')
                     {
                         if (!isNaN(lat1) && !isNaN(lon1)) {
                             var myLatlng1 = { lat: lat1, lng: lon1 };
+
+                             var marker1 = new MarkerWithLabel({
+                                position: myLatlng1,
+                                draggable: false,
+                                map: map,
+                                labelContent: result[i].shipname,
+                                labelAnchor: new google.maps.Point(22, 0),
+                                labelClass: "labels", // the CSS class for the label
+                                strokeColor: vstrokeColor,
+                                strokeOpacity: vstrokeOpacity,
+                                strokeWeight: 3,
+                                icon: {
+                                    path: google.maps.SymbolPath.CIRCLE,
+                                    strokeWeight: 2,
+                                    fillColor: color,
+                                    strokeColor: vstrokeColor,
+                                    strokeOpacity: vstrokeOpacity,
+                                    fillOpacity: vfillOpacity,
+                                    scale: 6,
+                                    rotation: course
+                                },
+                                source: result[i]
+                             });
+                             
+                            /*
                             marker1 = new google.maps.Marker({
                                 position: myLatlng1,
                                 map: map,
@@ -817,14 +866,9 @@ var indexActivity =
                                     scale: 6,
                                     rotation: course
                                 },
-                                source: result[i],
-                                /*label: {
-                                    text: "ok vamos",
-                                    fontFamily: 'Roboto, Arial, sans-serif',
-                                    fontSize: "10px"
-                                    color: "red"
-                                }*/
+                                source: result[i]
                             });
+*/
                         }
                     }
                     else
@@ -832,6 +876,32 @@ var indexActivity =
                         if (result[i].NavigationStatusShape == 'arrow') {
                             if (!isNaN(lat1) && !isNaN(lon1)) {
                                 var myLatlng1 = { lat: lat1, lng: lon1 };
+
+
+                             var marker1 = new MarkerWithLabel({
+                                position: myLatlng1,
+                                draggable: false,
+                                map: map,
+                                labelContent: result[i].shipname,
+                                labelAnchor: new google.maps.Point(22, 0),
+                                labelClass: "labels", // the CSS class for the label
+                                strokeColor: vstrokeColor,
+                                strokeOpacity: vstrokeOpacity,
+                                strokeWeight: 3,
+                                icon: {
+                                    path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+                                    strokeWeight: 2,
+                                    fillColor: color,
+                                    strokeColor: vstrokeColor,
+                                    strokeOpacity: vstrokeOpacity,
+                                    fillOpacity: vfillOpacity,
+                                    scale: 4,
+                                    rotation: course
+                                },
+                                source: result[i]
+                             });
+
+                                /*
                                 marker1 = new google.maps.Marker({
                                     position: myLatlng1,
                                     map: map,
@@ -849,7 +919,7 @@ var indexActivity =
                                         rotation: course
                                     },
                                     source: result[i]
-                                });
+                                });*/
                             }
                         }
                         else
@@ -861,23 +931,20 @@ var indexActivity =
                                            color,
                                            vfillOpacity,
                                            vstrokeOpacity,
-                                           3, lat1, lon1);
+                                           3, lat1, lon1,shipname);
                                 //marker1.setMap(map);
                                 marker1.source = result[i];
                             }
                         }
                     }
-                    
+                    ///////////////////////////////////////////////////////
+
                     var strInfoMessage = '<b>Nombre de nave:</b> ' + result[i].shipname + '<br>';
                     strInfoMessage += '<b>Tipo de nave:</b> ' + result[i].shiptypeDesc + '<br>';
                     strInfoMessage += '<b>MMSI:</b> ' + result[i].mmsi + '<br>';
-                    //strInfoMessage += '<b>IMO:</b> ' + result[i].imo + '<br>';
-                    //strInfoMessage += '<b>Call Sign:</b> ' + result[i].callsign + '<br>';
-                    //strInfoMessage += '<b>Lat:</b> ' + result[i].lat + ' <b>Lng:</b> ' + result[i].lon + '<br>';
-                    //strInfoMessage += '<b>Status:</b> ' + result[i].NavigationStatus + '<br>';
                     strInfoMessage += '<b>Velocidad:</b> ' + admill + " Kntos<br>";
                     strInfoMessage += '<b>Destino:</b> ' + result[i].destination;
-                    //console.log("result X:",result);
+
                     indexActivity.bindInfoWindow(marker1, map, myInfoWindow, strInfoMessage, result[i].id_ship);
                     marker1.setMap(map);
                     markersArray.push(marker1);
