@@ -27,21 +27,20 @@ var indexActivity =
     labelActive: false,
     maplabels: [],
     ini: function() {
-        $$(".labels").hide();
         $$("body").on("click","#btnLabel",function(){
             if(!$$(this).hasClass("check"))
             {
                 //LABEL ACTIVADO
                 $$(this).addClass("check");
                 indexActivity.labelActive = true;
-                $$(".labels").show();
+                $$(".labels").css("visibility","visible");
             }
             else
             {
                 //LABEL DESACTIVADO
                 $$(this).removeClass("check");
                 indexActivity.labelActive = false;
-                $$(".labels").hide();
+                $$(".labels").css("visibility","hidden");
 
             }
             //indexActivity.addLabels();

@@ -25,7 +25,7 @@
     text-align: center;
     white-space: nowrap;
     margin-top: 9px!important;
-    display: none;
+    visibility: hidden;
    }
    
  /*.button.button-fill.color-green{
