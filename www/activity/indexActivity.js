@@ -27,7 +27,7 @@ var indexActivity =
     labelActive: false,
     maplabels: [],
     ini: function() {
-        
+        $$(".labels").hide();
         $$("body").on("click","#btnLabel",function(){
             if(!$$(this).hasClass("check"))
             {
