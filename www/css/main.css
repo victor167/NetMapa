@@ -21,10 +21,11 @@
     color: #616161;
     background-color: white;
     font-family: "Lucida Grande", "Arial", sans-serif;
-    font-size: 10px;
+    font-size: 8px;
     text-align: center;
     white-space: nowrap;
     margin-top: 8px!important;
+    display: none;
    }
    
  /*.button.button-fill.color-green{

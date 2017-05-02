@@ -34,14 +34,18 @@ var indexActivity =
                 //LABEL ACTIVADO
                 $$(this).addClass("check");
                 indexActivity.labelActive = true;
+                $$(".labels").show();
             }
             else
             {
                 //LABEL DESACTIVADO
                 $$(this).removeClass("check");
                 indexActivity.labelActive = false;
+                $$(".labels").hide();
+
             }
-            indexActivity.addLabels();
+            //indexActivity.addLabels();
+
             /*$$("#search .search-icon").html('');
             $$("#search").toggleClass("show");
             $$('#search .search.input input[type="text"]').val("").focus();*/
