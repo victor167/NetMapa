@@ -111,6 +111,11 @@ var app = {
             //Main.loadActivity('panelMapActivity');
         
     },
+    render_css(str) {
+        var node = document.createElement('style');
+        node.innerHTML = str;
+        document.body.appendChild(node);
+    },
     /*loadTypeInspection: function(callbackTypeInspectionOK){
         ////console.log("loadTypeInspection");
         Main.restFul(

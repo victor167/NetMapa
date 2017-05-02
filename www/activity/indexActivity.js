@@ -33,14 +33,16 @@ var indexActivity =
                 //LABEL ACTIVADO
                 $$(this).addClass("check");
                 indexActivity.labelActive = true;
-                $$(".labels").css("visibility","visible");
+                //$$(".labels").css("visibility","visible");
+                app.render_css(".labels{visibility:visible;}");
             }
             else
             {
                 //LABEL DESACTIVADO
                 $$(this).removeClass("check");
                 indexActivity.labelActive = false;
-                $$(".labels").css("visibility","hidden");
+                app.render_css(".labels{visibility:hidden;}");
+                //$$(".labels").css("visibility","hidden");
 
             }
             //indexActivity.addLabels();
@@ -187,7 +189,7 @@ var indexActivity =
                         position: {lat: lati, lng: lon},
                         draggable: false,
                         map: map,
-                        labelContent: shipname,
+                        labelContent: nameShip,
                         labelAnchor: new google.maps.Point(22, 0),
                         labelClass: "labels", // the CSS class for the label
                         animation: google.maps.Animation.DROP,
