@@ -183,13 +183,21 @@ var indexActivity =
 
             console.log("lat: " + lati);
             console.log("lng: " + lon);
-
-            marker = new google.maps.Marker({
+            marker = new MarkerWithLabel({
+                        position: {lat: lati, lng: lon},
+                        draggable: false,
+                        map: map,
+                        labelContent: shipname,
+                        labelAnchor: new google.maps.Point(22, 0),
+                        labelClass: "labels", // the CSS class for the label
+                        animation: google.maps.Animation.DROP,
+                     });
+            /*marker = new google.maps.Marker({
                 map: map,
                 draggable: true,
                 animation: google.maps.Animation.DROP,
                 position: {lat: lati, lng: lon},
-            });
+            });*/
 
             marker.setAnimation(google.maps.Animation.BOUNCE);
 
