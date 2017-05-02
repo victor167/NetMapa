@@ -32,7 +32,7 @@ var indexActivity =
             {
                 //LABEL ACTIVADO
                 $$(this).addClass("check");
-                indexActivity.labelActive = true;
+                //indexActivity.labelActive = true;
                 //$$(".labels").css("visibility","visible");
                 app.render_css(".labels{visibility:visible;}");
             }
@@ -40,7 +40,7 @@ var indexActivity =
             {
                 //LABEL DESACTIVADO
                 $$(this).removeClass("check");
-                indexActivity.labelActive = false;
+                //indexActivity.labelActive = false;
                 app.render_css(".labels{visibility:hidden;}");
                 //$$(".labels").css("visibility","hidden");
 
@@ -968,7 +968,7 @@ var indexActivity =
 
                 if(i+1==result.length)
                 {
-                    setTimeout(indexActivity.addLabels,200);
+                    //setTimeout(indexActivity.addLabels,200);
                 }
             }
         }
