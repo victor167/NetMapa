@@ -100,6 +100,7 @@
     <preference name="fullscreen" value="false" />
     <preference name="android-manifest/application/activity/@android:theme" value="@android:style/Theme.DeviceDefault" />
     <preference name="DisallowOverscroll" value="true"/>
+    <preference name="android-minSdkVersion" value="14"/>
   </platform>
 
   <preference name="loadUrlTimeoutValue" value="700000" />
