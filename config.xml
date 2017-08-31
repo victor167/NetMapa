@@ -89,7 +89,6 @@
     
   <!--PREFERENCIAS-->
   <preference name="phonegap-version" value="cli-7.0.1" />
-  <preference name="AndroidPersistentFileLocation" value="Compatibility" />
 
   <preference name="loadUrlTimeoutValue" value="700000" />
 
