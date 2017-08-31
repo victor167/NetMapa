@@ -944,7 +944,7 @@ var indexActivity =
                                            color,
                                            vfillOpacity,
                                            vstrokeOpacity,
-                                           3, lat1, lon1,shipname);
+                                           3, lat1, lon1,result[i].shipname);
                                 //marker1.setMap(map);
                                 marker1.source = result[i];
                             }
