@@ -8,7 +8,6 @@
   <content src="index.html"/>
 
 <platform name="android">
-    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <allow-intent href="market:*"/>
     <icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
     <icon src="resources/android/icon/drawable-mdpi-icon.png" density="mdpi"/>
@@ -90,6 +89,8 @@
     
   <!--PREFERENCIAS-->
   <preference name="phonegap-version" value="cli-7.0.1" />
+  <Preference name="AndroidPersistentFileLocation" value="Compatibilidad"/>
+
   <platform name="android">
     
     <preference name="android-build-tool" value="gradle" />
