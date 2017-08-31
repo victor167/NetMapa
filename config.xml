@@ -89,7 +89,7 @@
     
   <!--PREFERENCIAS-->
   <preference name="phonegap-version" value="cli-7.0.1" />
-  <Preference name="AndroidPersistentFileLocation" value="Compatibilidad"/>
+  <preference name="AndroidPersistentFileLocation" value="Compatibility" />
 
   <platform name="android">
     
