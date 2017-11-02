@@ -111,7 +111,7 @@ var app = {
             //Main.loadActivity('panelMapActivity');
         
     },
-    render_css(str) {
+    render_css: function(str) {
         var node = document.createElement('style');
         node.innerHTML = str;
         document.body.appendChild(node);

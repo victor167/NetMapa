@@ -23,12 +23,19 @@
 {
 	border-bottom: 6px solid #e1e1e1;
 }
-#btnLabel
+#btnMapCenter
 {
 	line-height: 44px;
 	width: 55px;
 	text-align: center;
 	padding-top: 12px;
+}
+#btnLabel
+{
+    line-height: 44px;
+    width: 55px;
+    text-align: center;
+    padding-top: 12px;
 }
 #btnSearch
 {

@@ -27,6 +27,10 @@ var indexActivity =
     labelActive: false,
     maplabels: [],
     ini: function() {
+        $$("body").on("click","#btnMapCenter",function(){
+            indexActivity.moveToLocation(-13.80997, -77.91021, 5);
+        });
+
         $$("body").on("click","#btnLabel",function(){
             if(!$$(this).hasClass("check"))
             {
@@ -228,7 +232,8 @@ var indexActivity =
         Main.appendScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDqqseQsCvkJfCpy6gswmpUY4IBhCCrtZU&callback=indexActivity.initMap&libraries=geometry");
         
     },
-    ships:[],
+    ships: [],
+    antenas: [],
     rad: function (x) {
         return x * Math.PI / 180;
     },
@@ -752,12 +757,17 @@ var indexActivity =
                 indexActivity.clearOverlays();
                 
                 console.log("AddArrayPoint");
-                if(respondBody.data.d!="null")
+                if(typeof respondBody.data.d !== "undefined")
                 {
                     indexActivity.ships = JSON.parse(respondBody.data.d);
+                    indexActivity.AddArrayPoint();
                 }
-                
-                indexActivity.AddArrayPoint();
+
+                if(typeof respondBody.data.e !== "undefined")
+                {
+                    indexActivity.antenas = JSON.parse(respondBody.data.e);
+                    indexActivity.AddAntenas();
+                }
             }
         );
 
@@ -786,6 +796,51 @@ var indexActivity =
         }
         catch (err) {
             alert(err.message);
+        }
+    },
+    moveToLocation: function (lat, lng, zoom) {
+        if (typeof zoom === "undefined") {
+            zoom = 12;
+        }
+        if (typeof google !== "undefined")
+        {
+            var center = new google.maps.LatLng(lat, lng);
+            map.panTo(center);
+            map.setZoom(zoom);
+        }
+    },
+    AddAntenas: function(){
+        try
+        {
+            $$.each(indexActivity.antenas, function (index, value) {
+                if (value.State == 1) {
+                    var background = "4CAF50";
+                    var operative = "on";
+                }
+                else {
+                    var background = "FB4A13";
+                    var operative = "off";
+                }
+
+                var myLatlngA = { lat: value.lat, lng: value.lon };
+                var markerA = new google.maps.Marker({
+                    position: myLatlngA,
+                    map: map,
+                    icon: 'https://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + (index + 1) + '|' + background + '|FFFFFF',
+                    optimized: false,
+                    zIndex: 99999999
+                });
+
+                google.maps.event.addListener(markerA, 'click', function (e) {
+                    indexActivity.moveToLocation(value.lat, value.lon);
+                });
+
+                //markersArrayAntenna.push(markerA);
+                markerA.setMap(map);
+            });
+
+        }catch(err){
+            console.log("error", err);
         }
     },
     AddArrayPoint:function() {
